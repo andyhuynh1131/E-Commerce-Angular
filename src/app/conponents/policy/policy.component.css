@@ -1,0 +1,38 @@
+.main{
+    display: flex;
+    justify-content: space-around;
+
+}
+.item-policy{
+    text-align: center;
+    width: 23%;
+    height: 100px;
+    box-shadow: rgba(149, 157, 165, .5) 0px 8px 24px;
+    transition: transform 0.5s ease  ;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.icon{
+    width: 30%;
+    
+}
+.icon span{
+    font-size: 40px;
+}
+.item-policy:hover{
+transform: translateY(-20px)
+}
+.name{
+    font-size: 1.25rem; 
+    font-weight: 500;
+    margin-top: 10px;
+    color: black
+
+}
+.desription{
+    font-size: 1rem;
+    color: #555;
+    min-height: 50px;
+
+}

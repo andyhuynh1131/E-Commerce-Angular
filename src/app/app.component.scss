@@ -1,0 +1,49 @@
+@import "./sass/_variables";
+
+.container {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    
+    font-size: 13px;
+    font-family: "Roboto", sans-serif;
+
+    color: $main-color;
+}
+ul{
+    list-style: none
+}
+a{
+    text-align: none;
+    color: unset
+}
+a:hover{
+    color: $main-color;
+}
+img{ width: 100%}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+}
+.slider{
+    height: 100vh;
+    max-height: 1080px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 50px;
+}
+.footer{
+    margin-top: 50px;
+    
+    
+}
+.banner{
+      margin-left: 50px;  
+}

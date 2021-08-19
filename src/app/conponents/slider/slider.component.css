@@ -1,0 +1,89 @@
+.item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top:100px;
+    opacity: 0;
+    pointer-events: none;
+    height: 100vh;
+}
+.item.active{
+    opacity: 1;
+    pointer-events: visible;
+}
+.info{
+    text-align: center;
+    margin-left: 30px;
+}
+.item-info-title{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-size: 4.5rem;
+    line-height: 6.75rem;
+
+}
+.item-desription{
+    color: #555;
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+}
+.img{
+    width: 100%;
+    flex-grow: 1;
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 100%;
+    pointer-events: none;
+
+}
+img{
+    height: 700px;
+    position: absolute;
+    top: -30px;
+    right: 50px;
+    transform: scale(0) rotate(65deg);
+    transition: transform  1s cubic-bezier(.175, .885 , .32 , 1.275);
+}
+.img.active img {
+    transform: scale(1) rotate(0);
+}
+.shape{
+    height: 450px;
+    width: 450px;
+    background: #4267b2;
+    position: absolute;
+    right: 100px;
+    top: 50%;
+    border-radius: 58% 42% 38% 62% / 42% 55% 45% 58%;
+    transform: translate( 0 , -50%);
+    transition: border-radius 10s  ease;
+    animation: border 5s infinite;
+
+}
+@keyframes border {
+    0%{
+        border-radius:73% 27% 83% 17% / 59% 60% 40% 41%;
+       
+    }
+    50%{
+        border-radius:40% 60% 17% 83% / 50% 60% 40% 45%;
+       
+    }
+    100%{
+        border-radius:73% 27% 83% 17% / 59% 60% 40% 41%;
+       
+    }
+}
+.control{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    left: 30%;
+    display: flex;
+    justify-content: space-between;
+    color: black;
+}
+.control span{
+    font-size: 50px;
+}

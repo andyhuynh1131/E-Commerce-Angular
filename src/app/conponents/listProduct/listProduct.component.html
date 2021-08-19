@@ -1,0 +1,50 @@
+<div class="main">
+  <h3>Các Sản Phẩm Bán Chạy Trong Tuần</h3>
+  <div class="list-product">
+    <div class="item" *ngFor="let product of listProduct">
+      <div class="img">
+        <img [src]="product.image[0]" alt="">
+        <img [src]="product.image[1]" alt="">
+      </div>
+      <div class="info">
+        <p>{{product.name}}</p>
+        <del>399.999</del>
+        <p>{{product.price}}</p>
+        <button (click)="addToCartById(product.id)">Mua Ngay</button>
+      </div>
+    </div>
+  </div>
+
+  <h3>Các Sản Phẩm Mới</h3>
+  <div class="list-product">
+    <div class="item" *ngFor="let product of listProduct">
+      <div class="img">
+        <img [src]="product.image[0]" alt="">
+        <img [src]="product.image[1]" alt="">
+      </div>
+      <div class="info">
+        <p>{{product.name}}</p>
+        <del>399.999</del>
+        <p>{{product.price}}</p>
+        <button (click)="addToCartById(product.id)">Mua Ngay</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="list-product">
+    <div class="item" *ngFor="let product of listProduct">
+      <div class="img">
+        <img [src]="product.image[0]" alt="">
+        <img [src]="product.image[1]" alt="">
+      </div>
+      <div class="info">
+        <p>{{product.name}}</p>
+        <del>399.999</del>
+        <p>{{product.price}}</p>
+        <button (click)="addToCartById(product.id)">Mua Ngay</button>
+      </div>
+    </div>
+  </div>
+
+
+</div>

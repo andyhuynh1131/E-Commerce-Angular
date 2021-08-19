@@ -1,0 +1,66 @@
+.navbar {
+    width: 40%;
+    font-size: 20px;
+    color: #000;
+    font-weight: 400;
+    list-style: none;
+    display: flex;
+
+}
+.navbar li {
+    margin: 0 10px;
+    cursor: pointer;
+}
+li:hover{
+    color: #4267b2;
+    font-weight: 600;
+}
+.navbar li.active{
+    color: #4267b2;
+    font-weight: 600;
+}
+.main{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    width: 100%;
+    height: 70px;
+    z-index: 99;
+    background-color: white;
+    box-shadow: rgba(149, 175, 160, 0.2) 0px 8px 24px;
+}
+.logo{
+   margin: auto 0;
+    padding: 20px;
+    width: 30%
+  
+}
+.right-header{
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+.right-header span {
+    font-size: 25px;
+    color: #000;
+    margin: 20px 20px;
+    cursor: pointer;
+}
+.cart{
+    position: relative;
+}
+.total{
+    width: 20px;
+    height: 20px;
+    background: red;
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    color:white;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 50%;
+}

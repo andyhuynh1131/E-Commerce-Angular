@@ -1,0 +1,28 @@
+<div class="main">
+  <ul class="navbar">
+    <li class="active" >Trang Chủ</li>
+    <li>Sản Phẩm</li>
+    <li>Liên Hệ</li>
+    <li>Phụ Kiện</li>
+  </ul>
+  <div class="logo">
+    <h1>Huynh Phuc Shoppee</h1>
+  </div>
+  <div class="right-header">
+    <span class="material-icons">
+      search
+    </span>
+    <div class="cart">
+      <span class="material-icons">
+        shopping_cart
+      </span>
+      <ng-container *ngIf=" totalProduct!=0">
+         <p class="total">{{totalProduct}}</p>
+      </ng-container>
+    </div>
+   
+    <span class="material-icons">
+      person
+    </span>
+  </div>
+</div>
