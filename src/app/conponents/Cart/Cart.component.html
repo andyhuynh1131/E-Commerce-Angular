@@ -21,7 +21,7 @@
         <span class="material-icons" (click)="minus(item.id)">
           remove_circle
         </span>
-        <input type="text" [value]="item.qty">
+        <input type="text" [value]="item.qty" #text_input (input)="changeQty(text_input.value,item.id)">
         <span class="material-icons" (click)="plus(item.id)">
           add_circle
         </span>

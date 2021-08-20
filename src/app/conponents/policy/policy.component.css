@@ -20,6 +20,7 @@
 }
 .icon span{
     font-size: 40px;
+    color: #4267b2
 }
 .item-policy:hover{
 transform: translateY(-20px)

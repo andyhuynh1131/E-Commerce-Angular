@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from './../../service/Cart.service';
+import { NumberFormatStyle } from '@angular/common';
+import { NUMBER_TYPE } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -51,6 +53,22 @@ export class CartComponent implements OnInit {
     result.qty = result.qty + 1
     this.updateSum()
    
+  }
+
+  changeQty(qty:string, id:number){
+    const y:number =  +qty
+    if(y >0){
+      const result = this.listCart.find((x:any)=>x.id === id)
+      if(result){
+        result.qty = qty
+      }
+    }else{
+      const result = this.listCart.find((x:any)=>x.id === id)
+      if(result){
+        result.qty = 1
+      }
+    }
+  
   }
 
 

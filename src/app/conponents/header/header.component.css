@@ -35,6 +35,10 @@ li:hover{
     width: 30%
   
 }
+.logo h1{
+    font-weight: bold;
+    color: #4267b2
+}
 .right-header{
     width: 30%;
     align-items: center;
