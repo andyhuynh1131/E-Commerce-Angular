@@ -4,12 +4,11 @@
     justify-content: space-between;
     margin-top:100px;
     opacity: 0;
-    pointer-events: none;
     height: 100vh;
 }
 .item.active{
     opacity: 1;
-    pointer-events: visible;
+    transition: .5s ease
 }
 .info{
     text-align: center;
@@ -27,14 +26,14 @@
     font-size: 1.5rem;
     line-height: 2.25rem;
 }
-.img{
+.img.active{
     width: 100%;
     flex-grow: 1;
     position: relative;
     top: 0;
     right: 0;
     height: 100%;
-    pointer-events: none;
+   
 
 }
 img{
@@ -42,16 +41,13 @@ img{
     position: absolute;
     top: -30px;
     right: 50px;
-    transform: scale(0) rotate(65deg);
-    transition: transform  1s cubic-bezier(.175, .885 , .32 , 1.275);
+
 }
-.img.active img {
-    transform: scale(1) rotate(0);
-}
+
 .shape{
     height: 450px;
     width: 450px;
-    background: #4267b2;
+    background-color: #4267b2 ;
     position: absolute;
     right: 100px;
     top: 50%;
@@ -83,7 +79,10 @@ img{
     display: flex;
     justify-content: space-between;
     color: black;
+    cursor: pointer;
 }
 .control span{
     font-size: 50px;
+    cursor: pointer;
+    z-index: 100;
 }

@@ -2,7 +2,7 @@
   <h3>Các Sản Phẩm Bán Chạy Trong Tuần</h3>
   <div class="list-product">
     <div class="item" *ngFor="let product of listProduct">
-      <div class="img">
+      <div routerLink="product/{{product.id}}" class="img">
         <img [src]="product.image[0]" alt="">
         <img [src]="product.image[1]" alt="">
       </div>
@@ -18,14 +18,14 @@
   <h3>Các Sản Phẩm Mới</h3>
   <div class="list-product">
     <div class="item" *ngFor="let product of listProduct">
-      <div class="img">
+      <div routerLink="product/{{product.id}}" class="img">
         <img [src]="product.image[0]" alt="">
         <img [src]="product.image[1]" alt="">
       </div>
       <div class="info">
         <p>{{product.name}}</p>
         <del>399.999</del>
-        <p>{{product.price}}</p>
+        <p>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
         <button (click)="addToCartById(product.id)">Mua Ngay</button>
       </div>
     </div>
@@ -33,14 +33,14 @@
 
   <div class="list-product">
     <div class="item" *ngFor="let product of listProduct">
-      <div class="img">
+      <div class="img" routerLink="product/{{product.id}}">
         <img [src]="product.image[0]" alt="">
         <img [src]="product.image[1]" alt="">
       </div>
       <div class="info">
         <p>{{product.name}}</p>
-        <del>399.999</del>
-        <p>{{product.price}}</p>
+        <del>399.999 vnđ</del>
+        <p>{{product.price| currency:' ':'symbol':'1.0-1'}} vnđ</p>
         <button (click)="addToCartById(product.id)">Mua Ngay</button>
       </div>
     </div>

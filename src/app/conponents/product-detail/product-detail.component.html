@@ -1,0 +1,61 @@
+<div class="main">
+  <div class="img">
+    <div class="img-up">
+      <img [src]="product.image[currentImg]" alt="">
+    </div>
+    <div class="img-down">
+      <img [src]="product.image[0]" alt="" (click)="currentImg=0" [class]="currentImg == 0? 'active': null">
+      <img [src]="product.image[1]" alt="" (click)="currentImg=1" [class]="currentImg == 1? 'active': null">
+    </div>
+  </div>
+  <div class="content">
+    <div class="content-up">
+      <div class="title">
+        {{product.name}}
+      </div>
+      <div class="desription">
+        Form áo Châu Âu. Định lượng : 220 gsm. 100% cotton. Sản phẩm được in lụa. Tag logo được gắn ở tay áo. Tem chống hàng giả
+        của SWE được may trong sườn áo. Các bạn vui lòng tham khảo bảng size chart trước khi đặt hàng.
+      </div>
+      <div class="price">
+        <del>399.999 vnđ</del>
+        <p>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
+      </div>
+    </div>
+    <div class="content-down">
+      <div class="head">
+        <h3>COLOR</h3>
+        <h3>SIZE</h3>
+      </div>
+      <div class="body-content-down">
+        <div class="color">
+          <label class="custom-radio" *ngFor="let item of product.colors" [style.background]="item">
+            <input type="radio" name="color" class="btn-color" >
+            <span class="radio-btn">
+              <span class="material-icons">
+                done
+              </span>
+            </span>
+          </label>
+         
+        </div>
+        <div class="size">
+          <div class="color">
+            <label class="custom-radio-size" *ngFor="let item of product.size" [style.background]="item">
+              <span class="name-size">{{item}}</span>
+              <input type="radio" name="size">
+              <span class="radio-btn-size">
+                <span class="material-icons">
+                  done
+                </span>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+
+      <button>Thanh toán</button>
+    </div>
+  </div>
+</div>

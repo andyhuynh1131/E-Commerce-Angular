@@ -1,0 +1,41 @@
+<div class="main">
+  <h3>Giỏ hàng của bạn</h3>
+  <div class="title">
+
+    <div class="name">Sản phẩm</div>
+    <div class="price">Giá</div>
+    <div class="total">Số lượng</div>
+    <div class="numberTotal">
+      Tổng Tiền
+    </div>
+  </div>
+  <ng-container *ngFor="let item of listCart">
+    <div class="body">
+
+      <div class="name">
+        <img [src]="item.image[0]" alt="">
+        <img [src]="item.image[1]" alt="">
+      </div>
+      <div class="price">{{item.price | currency:' ':'symbol':'1.0-1'}} vnđ</div>
+      <div class="total">
+        <span class="material-icons" (click)="minus(item.id)">
+          remove_circle
+        </span>
+        <input type="text" [value]="item.qty">
+        <span class="material-icons" (click)="plus(item.id)">
+          add_circle
+        </span>
+      </div>
+      <div class="numberTotal">
+        {{item.price * item.qty | currency:' ':'symbol':'1.0-1'}} vnđ
+      </div>
+    </div>
+  </ng-container>
+
+</div>
+<div class="sumprice">
+  <p>Tổng tiền: {{sumprice | currency:' ':'symbol':'1.0-1' }} vnđ</p>
+  <p>Số lượng: {{sumtotal}}</p>
+
+  <button class="btn-pay">Thanh toán</button>
+</div>

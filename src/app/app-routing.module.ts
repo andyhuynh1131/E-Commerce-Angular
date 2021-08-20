@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes,RouterModule } from '@angular/router';
+import { CartComponent } from './conponents/Cart/Cart.component';
+import { HomeComponent } from 'src/app/conponents/home/home.component';
+import { ProductDetailComponent } from 'src/app/conponents/product-detail/product-detail.component';
 
-const routes: Routes = [];
+const routesConfig: Routes = [
+  {path:'', component: HomeComponent},
+  {path:'cart', component: CartComponent},
+  {path:'product/:id', component: ProductDetailComponent},
+
+];
+
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routesConfig)],
+
+
+exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

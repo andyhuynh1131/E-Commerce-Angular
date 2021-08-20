@@ -1,6 +1,6 @@
 <div class="main">
   <ul class="navbar">
-    <li class="active" >Trang Chủ</li>
+    <li class="active" routerLink="/" >Trang Chủ</li>
     <li>Sản Phẩm</li>
     <li>Liên Hệ</li>
     <li>Phụ Kiện</li>
@@ -9,11 +9,11 @@
     <h1>Huynh Phuc Shoppee</h1>
   </div>
   <div class="right-header">
-    <span class="material-icons">
+    <span routerLink="/cart" class="material-icons">
       search
     </span>
     <div class="cart">
-      <span class="material-icons">
+      <span routerLink="/cart" class="material-icons">
         shopping_cart
       </span>
       <ng-container *ngIf=" totalProduct!=0">

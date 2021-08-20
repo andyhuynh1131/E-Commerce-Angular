@@ -1,4 +1,6 @@
-import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter, OnChanges } from '@angular/core';
+import { ProductService } from './../../service/Product.service';
+import { CartService } from './../../service/Cart.service';
 
 
 @Component({
@@ -7,20 +9,27 @@ import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
   styleUrls: ['./listProduct.component.css']
 })
 export class ListProductComponent implements OnInit {
+ 
+  listProduct:any = []
 
-  @Input() listProduct:any;
-  @Output() addToCart = new EventEmitter()
-  constructor() { }
+  
+  constructor(private productService : ProductService, private cartService:CartService) {
+
+   }
+
+   getProductbyService ():void{
+     this.listProduct = this.productService.getProducts()
+   }
 
   ngOnInit() {
-    console.log(this.listProduct);
-    
+   this.getProductbyService()
+
   }
+ 
 
   addToCartById(id:number){
     const result  = this.listProduct.find((x:any)=>x.id===id)
-    this.addToCart.emit(result)
-    
+    this.cartService.addToCart(result) 
   }
 
 }

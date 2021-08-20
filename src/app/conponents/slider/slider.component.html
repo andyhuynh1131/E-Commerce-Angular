@@ -1,28 +1,30 @@
 <div class="main">
-  <div class="item active">
-    <div class="info">
-      <div class="item-info-title">
-        <span>
-          Polo nữ tô dáng người con gái Việt
-        </span>
+   
+    <div  class="item active">
+      <div class="info">
+        <div class="item-info-title" [style.color]="listSlider[currentSlide].color">
+          <span>
+            {{ listSlider[currentSlide].title }}
+          </span>
+        </div>
+        <div class="item-desription">
+          {{ listSlider[currentSlide].desription }}
+        </div>
       </div>
-      <div class="item-desription">
-        Polo nữ dáng suông tạo nên vẻ đẹo diệu dàng của người con gái việt
+      <div class="img active ">
+        <div class="shape" [style.background]="listSlider[currentSlide].color">
+        </div>
+        <img [src]="listSlider[currentSlide].img" alt="">
+        <div class="control">
+          <span class="material-icons" (click)="prev()">
+            arrow_back_ios
+          </span>
+          <span class="material-icons" (click)="next()">
+            arrow_forward_ios
+          </span>
+        </div>
       </div>
     </div>
-    <div class="img active">
-      <div class="shape">
-      </div>
-      <img src="../../../assets/images/slide_1.05395af1.png" alt="">
-      <div class="control">
-        <span class="material-icons">
-          arrow_back_ios
-        </span>
-        <span class="material-icons">
-          arrow_forward_ios
-        </span>
-      </div>
-    </div>
-  </div>
 
+   
 </div>
