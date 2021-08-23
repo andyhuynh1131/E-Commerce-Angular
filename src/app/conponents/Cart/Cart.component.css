@@ -1,17 +1,17 @@
-.main{
+.main {
   margin-top: 100px;
   text-align: center;
   width: 100%;
   height: auto;
 }
-.title{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    padding-bottom: 20px;
-    border-bottom: 3px solid #999
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #999;
 }
 .body {
   display: flex;
@@ -20,37 +20,38 @@
   width: 100%;
   height: auto;
   padding-bottom: 20px;
-  border-bottom: 3px solid #999
+  border-bottom: 3px solid #999;
 }
 
-.name{
-  width: 40%;
+.name {
+  width: 20%;
   font-size: 22px;
   font-weight: 400;
   color: black;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 15px;
 }
-.name img{
+.name img {
   width: 100px;
 }
-.price{
+.price {
   width: 20%;
   font-size: 22px;
   font-weight: 400;
   color: black;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.total{
+.total {
   width: 20%;
   font-size: 22px;
   font-weight: 400;
   color: black;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.total input{
+.total input {
   width: 30px;
   height: 30px;
   font-size: 20px;
@@ -58,35 +59,34 @@
   text-align: center;
   margin: 0 3px;
 }
-.total span{
+.total span {
   cursor: pointer;
 }
-.numberTotal{
+.numberTotal {
   width: 20%;
   font-size: 22px;
   font-weight: 400;
   color: black;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-h3{
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+h3 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 30px;
   font-weight: 500;
   color: black;
   margin-bottom: 30px;
 }
-.sumprice{
+.sumprice {
   margin-top: 30px;
   float: right;
   margin-right: 300px;
-
 }
-.sumprice p{
+.sumprice p {
   font-size: 25px;
   color: black;
   font-weight: 500;
 }
-.btn-pay{
+.btn-pay {
   margin-top: 20px;
   width: 200px;
   height: 60px;
@@ -95,4 +95,72 @@ h3{
   font-size: 25px;
   font-weight: bold;
   cursor: pointer;
+}
+.pay-title {
+  width: 20%;
+  font-size: 22px;
+  font-weight: 400;
+  color: black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.checkbox {
+  width: 25px;
+  height: 25px;
+}
+.custom-radio input {
+  display: none;
+}
+.custom-radio {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #999;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.radio-btn {
+  display: none;
+}
+.custom-radio input:checked + .radio-btn {
+  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+.custom-radio-size input {
+  display: none;
+}
+.custom-radio-size {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #999;
+  margin: 0 5px;
+  cursor: pointer;
+  position: relative;
+}
+.radio-btn-size {
+  display: none;
+}
+.custom-radio-size input:checked + .radio-btn-size {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: green;
+  position: absolute;
+  top: 0px;
+  right: 2px;
+}
+.name-size {
+  position: relative;
+  top: -26px;
+  font: 20px;
+  color: #999;
 }

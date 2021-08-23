@@ -1,7 +1,7 @@
 <div class="main">
   <h3>Giỏ hàng của bạn</h3>
   <div class="title">
-
+    <div class="pay-title">Chọn thanh toán</div>
     <div class="name">Sản phẩm</div>
     <div class="price">Giá</div>
     <div class="total">Số lượng</div>
@@ -11,20 +11,49 @@
   </div>
   <ng-container *ngFor="let item of listCart">
     <div class="body">
+      <div class="pay-title">
+        <input type="checkbox" class="checkbox" [(ngModel)]="item.isChecked" (change)="handelChange(item.id)">
+      </div>
 
       <div class="name">
-        <img [src]="item.image[0]" alt="">
-        <img [src]="item.image[1]" alt="">
+        <div style="display: flex;align-items: center;justify-content: center;">
+          <img [src]="item.image[0]" alt="">
+          <img [src]="item.image[1]" alt="">
+        </div>
+        <h4>{{item.name}}</h4>
       </div>
       <div class="price">{{item.price | currency:' ':'symbol':'1.0-1'}} vnđ</div>
       <div class="total">
-        <span class="material-icons" (click)="minus(item.id)">
-          remove_circle
-        </span>
-        <input type="text" [value]="item.qty" #text_input (input)="changeQty(text_input.value,item.id)">
-        <span class="material-icons" (click)="plus(item.id)">
-          add_circle
-        </span>
+        <div>
+          <span class="material-icons" (click)="minus(item.id)">
+            remove_circle
+          </span>
+          <input type="text" [value]="item.qty" #text_input (input)="changeQty(text_input.value,item.id)">
+          <span class="material-icons" (click)="plus(item.id)">
+            add_circle
+          </span>
+        </div>
+        <div style="display: flex;justify-content: center;margin: 5px;">
+          <label class="custom-radio" *ngFor="let color of item.colors" [style.background]="color">
+            <input type="radio" name="color  {{item.id}}" (click)="handleClickColor(color, item.id)" class="btn-color">
+            <span class="radio-btn">
+              <span class="material-icons">
+                done
+              </span>
+            </span>
+          </label>
+        </div>
+        <div style="display: flex;justify-content: center;margin-top: 15px;">
+          <label class="custom-radio-size" *ngFor="let size of item.size">
+            <span class="name-size">{{size}}</span>
+            <input type="radio" name="size  {{item.id}}" (click)="handleClickSize(size, item.id)">
+            <span class="radio-btn-size">
+              <span class="material-icons">
+                done
+              </span>
+            </span>
+          </label>
+        </div>
       </div>
       <div class="numberTotal">
         {{item.price * item.qty | currency:' ':'symbol':'1.0-1'}} vnđ
@@ -37,5 +66,27 @@
   <p>Tổng tiền: {{sumprice | currency:' ':'symbol':'1.0-1' }} vnđ</p>
   <p>Số lượng: {{sumtotal}}</p>
 
-  <button class="btn-pay">Thanh toán</button>
+  <button class="btn-pay" (click)="showDialog()">Thanh toán</button>
 </div>
+<p-dialog header="Thông tin hoá đơn" [modal]="true" [(visible)]="display" [breakpoints]="{'960px': '75vw'}"
+  [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
+  <ng-container *ngIf="listPay.length==0">
+    Vui lòng chọn sản phẩm thanh toán
+  </ng-container>
+
+  <div *ngFor="let product of listPay">
+    <h3>Thông tin chi tiết:</h3><br>
+    <p>Tên sản phẩm: {{product.name}}</p>
+    <p>Giá : {{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
+    <p>Màu sắc : {{product.color}}</p>
+    <p>Size : {{product.sizeChosen}}</p>
+    <p>Số lượng : {{product.qty}}</p>
+    <p>Tổng tiền : {{product.price * product.qty | currency:' ':'symbol':'1.0-1'}} vnđ</p>
+  </div>
+
+  <ng-container *ngIf="listPay.length!=0">
+    <h5>Tổng hoá đơn : {{sumprice | currency:' ':'symbol':'1.0-1'}} vnđ</h5>
+  </ng-container>
+
+
+</p-dialog>

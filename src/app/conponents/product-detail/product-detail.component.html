@@ -1,4 +1,5 @@
 <div class="main">
+
   <div class="img">
     <div class="img-up">
       <img [src]="product.image[currentImg]" alt="">
@@ -14,12 +15,13 @@
         {{product.name}}
       </div>
       <div class="desription">
-        Form áo Châu Âu. Định lượng : 220 gsm. 100% cotton. Sản phẩm được in lụa. Tag logo được gắn ở tay áo. Tem chống hàng giả
+        Form áo Châu Âu. Định lượng : 220 gsm. 100% cotton. Sản phẩm được in lụa. Tag logo được gắn ở tay áo. Tem chống
+        hàng giả
         của SWE được may trong sườn áo. Các bạn vui lòng tham khảo bảng size chart trước khi đặt hàng.
       </div>
       <div class="price">
         <del>399.999 vnđ</del>
-        <p>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
+        <p>{{product.price* product.qty | currency:' ':'symbol':'1.0-1'}} vnđ</p>
       </div>
     </div>
     <div class="content-down">
@@ -30,20 +32,20 @@
       <div class="body-content-down">
         <div class="color">
           <label class="custom-radio" *ngFor="let item of product.colors" [style.background]="item">
-            <input type="radio" name="color" class="btn-color" >
+            <input type="radio" name="color" (click)="handleClickColor(item)" class="btn-color">
             <span class="radio-btn">
               <span class="material-icons">
                 done
               </span>
             </span>
           </label>
-         
+
         </div>
         <div class="size">
           <div class="color">
-            <label class="custom-radio-size" *ngFor="let item of product.size" [style.background]="item">
+            <label class="custom-radio-size" *ngFor="let item of product.size">
               <span class="name-size">{{item}}</span>
-              <input type="radio" name="size">
+              <input type="radio" name="size" (click)="handleClickSize(item)">
               <span class="radio-btn-size">
                 <span class="material-icons">
                   done
@@ -53,9 +55,36 @@
           </div>
         </div>
       </div>
+      <div class="quantity">
+        <span class="material-icons" (click)="minus()">
+          remove_circle
+        </span>
+        <input id="text_value" type="text" [value]="product.qty <= 0 ? 1 : product.qty " [(ngModel)]="product.qty"
+          (input)="chaneQty()">
+        <span class="material-icons" (click)="plus()">
+          add_circle
+        </span>
+      </div>
 
-
-      <button>Thanh toán</button>
+      <button (click)="addToCart()">Thêm giỏ hàng</button>
+      <button (click)="showDialog()">Thanh toán</button>
     </div>
   </div>
-</div>
+  <p-dialog header="Thông tin hoá đơn" [modal]="true" [(visible)]="display" [breakpoints]="{'960px': '75vw'}"
+    [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
+
+
+    <div>
+      <h3>Thông tin chi tiết:</h3><br>
+      <p>Tên sản phẩm: {{product.name}}</p>
+      <p>Giá : {{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
+      <p>Màu sắc : {{product.color}}</p>
+      <p>Size : {{product.sizeChosen}}</p>
+      <p>Số lượng : {{product.qty}}</p>
+      <p>Tổng tiền : {{product.price * product.qty | currency:' ':'symbol':'1.0-1'}} vnđ</p>
+    </div>
+
+
+
+
+  </p-dialog>

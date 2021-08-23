@@ -7,10 +7,10 @@
         <img [src]="product.image[1]" alt="">
       </div>
       <div class="info">
-        <p>{{product.name}}</p>
+        <p routerLink="product/{{product.id}}">{{product.name}}</p>
         <del>399.999</del>
-        <p>{{product.price}}</p>
-        <button (click)="addToCartById(product.id)">Mua Ngay</button>
+        <p>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
+        <button (click)="addToCartById(product.id)">Thêm giỏ hàng</button>
       </div>
     </div>
   </div>
@@ -23,10 +23,10 @@
         <img [src]="product.image[1]" alt="">
       </div>
       <div class="info">
-        <p>{{product.name}}</p>
+        <p routerLink="product/{{product.id}}">{{product.name}}</p>
         <del>399.999</del>
         <p>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
-        <button (click)="addToCartById(product.id)">Mua Ngay</button>
+        <button (click)="addToCartById(product.id)">Thêm giỏ hàng</button>
       </div>
     </div>
   </div>
@@ -38,10 +38,10 @@
         <img [src]="product.image[1]" alt="">
       </div>
       <div class="info">
-        <p>{{product.name}}</p>
+        <p routerLink="product/{{product.id}}">{{product.name}}</p>
         <del>399.999 vnđ</del>
         <p>{{product.price| currency:' ':'symbol':'1.0-1'}} vnđ</p>
-        <button (click)="addToCartById(product.id)">Mua Ngay</button>
+        <button (click)="addToCartById(product.id)">Thêm giỏ hàng</button>
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges,SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CartService } from './../../service/Cart.service';
 
 @Component({
@@ -6,26 +6,26 @@ import { CartService } from './../../service/Cart.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit,OnChanges {
+export class HeaderComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
-   console.log(changes);
-   
+    console.log(changes);
+
   }
-  
-   totalProduct:any=0
 
-  constructor(private cartService:CartService) {
-   }
+  totalProduct: number = 0
 
-   getTotal(){
-     this.totalProduct = this.cartService.getTotal()
-   }
+  constructor(private cartService: CartService) {
+  }
+
+  getTotal() {
+    this.cartService.getProducts().subscribe(x => {
+      this.totalProduct = x.length
+    })
+  }
   ngOnInit() {
-   const interval = setInterval(()=>{
-     this.getTotal()
-   },500)
+    this.getTotal()
   }
 
- 
+
 
 }
