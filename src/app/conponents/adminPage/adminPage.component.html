@@ -1,0 +1,114 @@
+<div class="main">
+  <p-toast key="success" position="top-right"></p-toast>
+  <p-toast key="error"></p-toast>
+  <div class="header">
+    <h5>Quản lí sản phẩm</h5>
+  </div>
+
+  <div class="body">
+    <div class="create">
+      <button pButton type="button" (click)="showDialog()" style="cursor: pointer" label="Thêm sản phẩm"
+        class="p-button-success"></button>
+    </div>
+    <p-dialog [(visible)]="displayDialog" [modal]="true" [style]="{width: '30vw',height:'30vw'}">
+      <ng-template pTemplate="header">
+        Nhập thông tin sản phẩm
+      </ng-template>
+      <div *ngIf="displayFormEdit">
+        <form (submit)="edit(formEdit)" #formEdit="ngForm">
+          <h3>Form chỉnh sửa </h3>
+          <div class="fluid">
+            <div class="field">
+              <label for="name">Tên sản phẩm :</label>
+              <input id="name" type="text" [(ngModel)]="name" name="name" pInputText>
+            </div>
+            <div class="field">
+              <label for="price">Giá :</label>
+              <input id="price" type="text" [(ngModel)]="price" name="price" pInputText>
+            </div>
+            <div class="field">
+              <label for="price">Màu sắc :</label>
+              <input id="price" type="text" [(ngModel)]="colors" name="colors" pInputText>
+            </div>
+            <div class="field">
+              <label for="price">Kích cỡ :</label>
+              <input id="price" type="text" [(ngModel)]="size" name="size" pInputText>
+            </div>
+          </div>
+          <div class="field">
+            <button pButton type="submit" style="cursor: pointer" label="Chỉnh sửa sản phẩm"
+              class="p-button-success"></button>
+            <button pButton type="button" (click)="showDialog()" style="cursor: pointer" label="Thoát"
+              class="p-button-danger"></button>
+          </div>
+
+        </form>
+      </div>
+
+      <div *ngIf="!displayFormEdit">
+        <form (submit)="create(formCreate)" #formCreate="ngForm">
+          <h3>Form thêm </h3>
+          <div class="fluid">
+            <div class="field">
+              <label for="name">Tên sản phẩm :</label>
+              <input id="name" type="text" ngModel name="name" pInputText>
+            </div>
+            <div class="field">
+              <label for="price">Giá :</label>
+              <input id="price" type="text" ngModel name="price" pInputText>
+            </div>
+            <div class="field">
+              <label for="price">Màu sắc :</label>
+              <input id="price" type="text" ngModel name="colors" pInputText>
+            </div>
+            <div class="field">
+              <label for="price">Kích cỡ :</label>
+              <input id="price" type="text" ngModel name="size" pInputText>
+            </div>
+          </div>
+          <div class="field">
+            <button pButton type="submit" style="cursor: pointer" label="Thêm sản phẩm"
+              class="p-button-success"></button>
+            <button pButton type="button" (click)="showDialog()" style="cursor: pointer" label="Thoát"
+              class="p-button-danger"></button>
+          </div>
+
+        </form>
+      </div>
+
+    </p-dialog>
+
+
+    <div class="table">
+      <p-table [value]="listProduct">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Color</th>
+            <th>Kích thước</th>
+            <th>Chức Năng</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</td>
+            <td>{{product.colors}}</td>
+            <td>{{product.size}}</td>
+            <td>
+
+              <i class="pi pi-pencil" style="font-size: 1rem; color: rgb(214, 214, 67);cursor: pointer;margin: 20px;"
+                (click)="showProducttoForm(product.id)"></i>
+              <i class="pi pi-trash" style="font-size: 1rem; color: red;cursor: pointer;"
+                (click)="remove(product.id)"></i>
+
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

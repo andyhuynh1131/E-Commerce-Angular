@@ -9,7 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { ButtonModule } from 'primeng/button';
-import { CheckboxModule } from 'primeng/checkbox';
+import { AvatarModule } from 'primeng/avatar';
+import { TableModule } from 'primeng/table';
+import { ToastModule } from 'primeng/toast';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from 'src/app/conponents/header/header.component';
@@ -20,11 +22,15 @@ import { FooterComponent } from 'src/app/conponents/footer/footer.component';
 import { CartComponent } from './conponents/Cart/Cart.component';
 import { HomeComponent } from './conponents/home/home.component';
 import { ProductDetailComponent } from './conponents/product-detail/product-detail.component';
+import { AdminPageComponent } from './conponents/adminPage/adminPage.component';
 
 
 import { ProductService } from './service/Product.service';
 import { CartService } from './service/Cart.service';
 import { ConfirmationService } from 'primeng/api';
+import { LoginComponent } from './conponents/login/login.component';
+import { AccCountService } from './service/AccCount.service';
+
 
 
 @NgModule({
@@ -37,7 +43,9 @@ import { ConfirmationService } from 'primeng/api';
     FooterComponent,
     HomeComponent,
     CartComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    LoginComponent,
+    AdminPageComponent
   ],
   imports: [
     FormsModule,
@@ -48,12 +56,15 @@ import { ConfirmationService } from 'primeng/api';
     ButtonModule,
     DialogModule,
     BrowserAnimationsModule,
-    CheckboxModule
+    AvatarModule,
+    TableModule,
+    ToastModule,
   ],
   providers: [
     ProductService,
     CartService,
-    ConfirmationService
+    ConfirmationService,
+    AccCountService
   ],
 
   bootstrap: [AppComponent]

@@ -64,3 +64,35 @@ li:hover {
     border-radius: 50%;
     padding-top: 3px;
 }
+.avatar {
+    cursor: pointer;
+    position: relative;
+}
+.avatar:hover + .logout {
+    opacity: 1;
+    transform: translateY(100%);
+}
+
+.logout {
+    transform: translateY(0);
+    opacity: 0;
+    transition: all 0.5s ease;
+    position: absolute;
+    top: 10px;
+    right: 100px;
+
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 10px;
+    box-shadow: 0px 2px 4px #888888;
+    border-radius: 20px;
+    cursor: pointer;
+    background: white;
+}
+.logout:hover {
+    opacity: 1;
+    transform: translateY(100%);
+    z-index: 100;
+}

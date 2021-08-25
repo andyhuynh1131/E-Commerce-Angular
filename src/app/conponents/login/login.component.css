@@ -1,0 +1,65 @@
+.sign-up {
+    margin-top: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-signup {
+    width: 30%;
+    height: 400px;
+    margin: 100px auto;
+}
+.input-div {
+    width: 100%;
+    height: 45px;
+    position: relative;
+    border: 1px solid #999;
+    border-radius: 25px;
+    margin-bottom: 20px;
+}
+input {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    margin: auto;
+    font-size: 1.5rem;
+    border: none;
+    padding-left: 45px;
+}
+
+.material-icons,
+.bxs-lock-alt {
+    position: absolute;
+    top: 13px;
+    left: 10px;
+    font-size: 1.7rem;
+    color: #999;
+}
+.footer-form-login {
+    margin: 20px;
+}
+span {
+    display: block;
+    margin: 0 auto;
+    font-size: 18px;
+    text-align: center;
+}
+.sign-up-btn {
+    display: block;
+    margin: 0 auto;
+    width: 120px;
+    height: 40px;
+    background-color: #4267b2;
+    color: white;
+    font-weight: bold;
+    font-size: 1.25rem;
+    border-radius: 20px;
+    box-shadow: 2px 5px 5px #aaaaaa;
+    cursor: pointer;
+}
+.sign-up-btn:hover {
+    transform: translateY(-10%);
+    transition: all 0.2s linear;
+}

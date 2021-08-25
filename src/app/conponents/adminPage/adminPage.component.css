@@ -1,0 +1,30 @@
+.main {
+    margin-top: 200px;
+}
+.header {
+    text-align: center;
+}
+h5 {
+    font-size: 30px;
+}
+.table th {
+    text-align: center;
+}
+.table td {
+    text-align: center;
+}
+.create {
+    margin: 30px 100px;
+}
+.fluid {
+    width: 100%;
+}
+.field {
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+}
+input {
+    width: 65%;
+}

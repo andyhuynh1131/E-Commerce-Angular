@@ -4,6 +4,7 @@
     <li>Sản Phẩm</li>
     <li>Liên Hệ</li>
     <li>Phụ Kiện</li>
+    <li *ngIf="accCurrent[0]" routerLink="/admin">Quản Lí</li>
   </ul>
   <div class="logo">
     <h1>Huynh Phuc Shopping</h1>
@@ -21,8 +22,13 @@
       </ng-container>
     </div>
 
-    <span class="material-icons">
+    <span *ngIf="!accCurrent[0]" routerLink="/login" class="material-icons">
       person
     </span>
+    <p-avatar *ngIf="accCurrent[0]" label="P" styleClass="p-mr-2" shape="circle" class="avatar">
+    </p-avatar>
+    <div class="logout">
+      <a (click)="logOut()">Đăng xuất</a>
+    </div>
   </div>
 </div>

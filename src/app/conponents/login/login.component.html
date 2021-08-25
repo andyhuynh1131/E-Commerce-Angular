@@ -1,0 +1,21 @@
+<div class="sign-up">
+
+  <div class="form-signup">
+    <form (submit)="onSubmit()">
+      <div class="input-div">
+        <input type='text' name="username" [(ngModel)]="username" placeholder='Nhập tài khoản của bạn ...' />
+        <span class="material-icons">
+          person
+        </span>
+      </div>
+      <div class="input-div">
+        <input type="password" name='password' [(ngModel)]="password" placeholder='Nhập mật khẩu của bạn ...' />
+        <span class="material-icons">
+          lock
+        </span>
+      </div>
+
+      <button class='sign-up-btn' type='submit'>Đăng nhập</button>
+    </form>
+  </div>
+</div>
