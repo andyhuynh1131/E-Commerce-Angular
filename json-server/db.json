@@ -64,9 +64,7 @@
       ]
     },
     {
-      "id": 4,
       "name": "Áo thun Dinosaur 04",
-      "qty": 1,
       "price": 299000,
       "image": [
         "../../../assets/images/product-06 (1).jpg",
@@ -77,19 +75,8 @@
         "red",
         "orange"
       ],
-      "size": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ]
-    },
-    {
-      "name": "huynh ngoc hoang phuc",
-      "price": "123",
-      "colors": "303303",
-      "size": "UK8.5",
-      "id": 5
+      "size": "S,M,L",
+      "id": 4
     }
   ],
   "acccounts": [

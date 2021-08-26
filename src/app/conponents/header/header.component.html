@@ -1,10 +1,10 @@
 <div class="main">
   <ul class="navbar">
-    <li class="active" routerLink="/">Trang Chủ</li>
+    <li routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact:true}">Trang Chủ</li>
     <li>Sản Phẩm</li>
     <li>Liên Hệ</li>
     <li>Phụ Kiện</li>
-    <li *ngIf="accCurrent[0]" routerLink="/admin">Quản Lí</li>
+    <li *ngIf="accCurrent[0]" routerLink="/admin" routerLinkActive="active">Quản Lí</li>
   </ul>
   <div class="logo">
     <h1>Huynh Phuc Shopping</h1>
@@ -27,7 +27,7 @@
     </span>
     <p-avatar *ngIf="accCurrent[0]" label="P" styleClass="p-mr-2" shape="circle" class="avatar">
     </p-avatar>
-    <div class="logout">
+    <div *ngIf="accCurrent[0]" class="logout">
       <a (click)="logOut()">Đăng xuất</a>
     </div>
   </div>

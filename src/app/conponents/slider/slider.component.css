@@ -76,5 +76,5 @@ img {
 .control span {
     font-size: 50px;
     cursor: pointer;
-    z-index: 100;
+    z-index: 99;
 }

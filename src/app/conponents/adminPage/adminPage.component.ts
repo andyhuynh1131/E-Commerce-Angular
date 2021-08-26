@@ -17,20 +17,22 @@ export class AdminPageComponent implements OnInit {
   colors: any
   size: any
   id: number = 0
+  image: any
 
 
   constructor(private productService: ProductService, private messageService: MessageService) {
-
   }
 
   ngOnInit() {
     this.getAllProducts();
   }
 
+  //Lấy tất cả sản phẩm 
   getAllProducts() {
     this.productService.getProducts().subscribe((x: any) => { this.listProduct = x })
   };
 
+  // Tạo sản phẩm mới
   create(data: any) {
     this.productService.createProduct(data.value).toPromise()
       .then(res => {
@@ -44,7 +46,7 @@ export class AdminPageComponent implements OnInit {
         this.showError('Thêm thất bại')
       })
   };
-
+  // chỉnh sửa sản phẩm
   edit(data: any) {
 
 
@@ -60,11 +62,8 @@ export class AdminPageComponent implements OnInit {
       .catch(() => {
         this.showError('Chỉnh sửa thất bại')
       })
-
-
-
   };
-
+  //Hiển thị dữ liệu lên form khi nhấn nút edit
   showProducttoForm(id: number) {
     const result = this.listProduct.find((x: any) => x.id === id)
     if (result) {
@@ -75,9 +74,10 @@ export class AdminPageComponent implements OnInit {
       this.colors = result.colors;
       this.size = result.size;
       this.id = result.id
+      this.image = result.image
     }
   }
-
+  //xoá sản phẩm 
   remove(id: number) {
     const confirmRemove = confirm('Bạn có chắc chắn muốn xoá ?')
     if (confirmRemove) {
@@ -92,21 +92,21 @@ export class AdminPageComponent implements OnInit {
     }
 
   };
-
+  // Xoá sản phẩm trên giao diện khi thành công
   removeById(id: number) {
     const index = this.listProduct.findIndex((x: any) => x.id === id)
     if (index) {
       this.listProduct.splice(index, 1)
     }
   };
-
+  // Chỉnh sửa sản phẩm trên giao diện khi thành công
   EditProductsuccess(product: any) {
     let index = this.listProduct.findIndex((x: any) => x.id === product.id)
     if (index >= 0) {
       this.listProduct.splice(index, 1, product)
     }
   }
-
+  //Hiển thị Form
   showDialog() {
     this.displayDialog = !this.displayDialog
     this.displayFormEdit = false
@@ -114,14 +114,15 @@ export class AdminPageComponent implements OnInit {
     this.price = ''
     this.colors = ''
     this.size = ''
+    this.image = ''
   };
-
+  // Toast thành công
   showSuccess(mess: string) {
     this.messageService.add({ key: 'success', severity: 'success', detail: mess });
   };
-
+  // Toast thất bại
   showError(mess: string) {
     this.messageService.add({ key: 'error', severity: 'error', detail: mess });
-  }
+  };
 
 }

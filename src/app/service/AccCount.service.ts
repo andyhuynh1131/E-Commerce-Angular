@@ -9,7 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AccCountService {
   private APIurl = 'http://localhost:3000/acccounts';
   accountCurrent: any = []
-  AccountBeha = new BehaviorSubject<any>([{ username: 'hihi', password: 'haha' }]);
+  AccountBeha = new BehaviorSubject<any>([]);
   constructor(private http: HttpClient) {
 
 
