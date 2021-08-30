@@ -14,20 +14,18 @@ import { ProductService } from './../../service/Product.service';
 export class ProductDetailComponent implements OnInit {
   display: boolean = false
   currentImg: number = 0
-  id: any = 0
+  id: number = 0
   product: any = {}
   listProduct: any = []
   constructor(private route: ActivatedRoute, private productService: ProductService, private cartService: CartService) {
-
   }
 
   ngOnInit() {
     window.scrollTo(0, 0)
-    this.getProductsbyService();
     this.route.paramMap.subscribe((param: ParamMap) => {
-      this.id = param.get('id')
-
+      this.id = Number(param.get('id'))
     });
+    this.getProductsbyService();
 
 
 
@@ -69,22 +67,28 @@ export class ProductDetailComponent implements OnInit {
   };
 
   addToCart() {
-    this.cartService.addToCart(this.product)
+    if (this.showDialog()) {
+      this.cartService.addToCart(this.product)
+    }
   };
 
-  showDialog() {
+  showDialog(): boolean {
     if (this.product.sizeChosen && this.product.color) {
-      this.display = !this.display;
+      return true
     } else {
       alert('Vui lòng chọn màu và size sản phẩm')
+      return false
     }
 
+  };
+  CheckPay() {
+    if (this.showDialog()) {
+      this.display = !this.display;
+    }
   };
 
   handleClickColor(color: any) {
     this.product.color = color
-    console.log(this.product.color);
-
   };
 
   handleClickSize(size: any) {

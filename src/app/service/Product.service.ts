@@ -12,9 +12,14 @@ export class ProductService {
     constructor(private http: HttpClient) {
 
     };
-    getProducts(): Observable<any> {
+    getProducts() {
         return this.http.get(this.APIurl)
     };
+
+
+    getProductbyId(id: number): Observable<any> {
+        return this.http.get(`${this.APIurl}/${id}`)
+    }
 
     createProduct(product: any): Observable<any> {
         product.image = product.image.split(',')

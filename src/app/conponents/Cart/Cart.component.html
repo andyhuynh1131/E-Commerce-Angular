@@ -35,7 +35,8 @@
         </div>
         <div style="display: flex;justify-content: center;margin: 5px;">
           <label class="custom-radio" *ngFor="let color of item.colors" [style.background]="color">
-            <input type="radio" name="color  {{item.id}}" (click)="handleClickColor(color, item.id)" class="btn-color">
+            <input type="radio" [checked]="color == item.color" name="color {{item.id}}"
+              (click)="handleClickColor(color, item.id)" class="btn-color">
             <span class="radio-btn">
               <span class="material-icons">
                 done
@@ -46,7 +47,8 @@
         <div style="display: flex;justify-content: center;margin-top: 15px;">
           <label class="custom-radio-size" *ngFor="let size of item.size">
             <span class="name-size">{{size}}</span>
-            <input type="radio" name="size  {{item.id}}" (click)="handleClickSize(size, item.id)">
+            <input type="radio" [checked]="size == item.sizeChosen" name="size  {{item.id}}"
+              (click)="handleClickSize(size, item.id)">
             <span class="radio-btn-size">
               <span class="material-icons">
                 done
@@ -68,8 +70,7 @@
 
   <button class="btn-pay" (click)="showDialog()">Thanh toán</button>
 </div>
-<p-dialog header="Thông tin hoá đơn" [modal]="true" [(visible)]="display" [breakpoints]="{'960px': '75vw'}"
-  [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
+<p-dialog header="Thông tin hoá đơn" [modal]="true" [(visible)]="display" [draggable]="false" [resizable]="false">
   <ng-container *ngIf="listPay.length==0">
     Vui lòng chọn sản phẩm thanh toán
   </ng-container>
@@ -83,10 +84,7 @@
     <p>Số lượng : {{product.qty}}</p>
     <p>Tổng tiền : {{product.price * product.qty | currency:' ':'symbol':'1.0-1'}} vnđ</p>
   </div>
-
   <ng-container *ngIf="listPay.length!=0">
     <h5>Tổng hoá đơn : {{sumprice | currency:' ':'symbol':'1.0-1'}} vnđ</h5>
   </ng-container>
-
-
 </p-dialog>

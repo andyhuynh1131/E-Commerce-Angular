@@ -2,11 +2,13 @@
 
   <div class="img">
     <div class="img-up">
-      <img [src]="product.image[currentImg]" alt="">
+      <img [src]="product.image?  product.image[currentImg] : null" alt="">
     </div>
     <div class="img-down">
-      <img [src]="product.image[0]" alt="" (click)="currentImg=0" [class]="currentImg == 0? 'active': null">
-      <img [src]="product.image[1]" alt="" (click)="currentImg=1" [class]="currentImg == 1? 'active': null">
+      <img [src]="product.image?  product.image[0] : null" alt="" (click)="currentImg=0"
+        [class]="currentImg == 0? 'active': null">
+      <img [src]=" product.image? product.image[1] :null" alt="" (click)="currentImg=1"
+        [class]="currentImg == 1? 'active': null">
     </div>
   </div>
   <div class="content">
@@ -21,7 +23,7 @@
       </div>
       <div class="price">
         <del>399.999 vnđ</del>
-        <p>{{product.price* product.qty | currency:' ':'symbol':'1.0-1'}} vnđ</p>
+        <p>{{product.price * product.qty | currency:' ':'symbol':'1.0-1'}} vnđ</p>
       </div>
     </div>
     <div class="content-down">
@@ -67,11 +69,11 @@
       </div>
 
       <button (click)="addToCart()">Thêm giỏ hàng</button>
-      <button (click)="showDialog()">Thanh toán</button>
+      <button (click)="CheckPay()">Thanh toán</button>
     </div>
   </div>
-  <p-dialog header="Thông tin hoá đơn" [modal]="true" [(visible)]="display" [breakpoints]="{'960px': '75vw'}"
-    [style]="{width: '50vw'}" [draggable]="false" [resizable]="false">
+  <p-dialog header="Thông tin hoá đơn" [modal]="true" [(visible)]="display" [style]="{width: '50vw'}"
+    [draggable]="false" [resizable]="false">
 
 
     <div>
@@ -83,8 +85,4 @@
       <p>Số lượng : {{product.qty}}</p>
       <p>Tổng tiền : {{product.price * product.qty | currency:' ':'symbol':'1.0-1'}} vnđ</p>
     </div>
-
-
-
-
   </p-dialog>

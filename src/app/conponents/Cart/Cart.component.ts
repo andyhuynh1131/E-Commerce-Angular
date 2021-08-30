@@ -24,9 +24,9 @@ export class CartComponent implements OnInit {
     this.cartService.getProducts().subscribe(x => {
       this.listCart = x
       this.updateSum()
+      console.log(this.listCart);
+
     })
-
-
   };
 
   updateSum() {

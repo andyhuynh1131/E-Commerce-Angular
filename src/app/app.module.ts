@@ -1,9 +1,10 @@
 import { DialogModule } from 'primeng/dialog';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 import { MatIconModule } from '@angular/material/icon';
@@ -12,6 +13,7 @@ import { ButtonModule } from 'primeng/button';
 import { AvatarModule } from 'primeng/avatar';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from 'src/app/conponents/header/header.component';
@@ -30,6 +32,7 @@ import { CartService } from './service/Cart.service';
 import { ConfirmationService } from 'primeng/api';
 import { LoginComponent } from './conponents/login/login.component';
 import { AccCountService } from './service/AccCount.service';
+import { FormComponent } from './conponents/form/form.component';
 
 
 
@@ -45,10 +48,12 @@ import { AccCountService } from './service/AccCount.service';
     CartComponent,
     ProductDetailComponent,
     LoginComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    FormComponent
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserModule,
     MatIconModule,

@@ -70,12 +70,18 @@
         "../../../assets/images/product-06 (1).jpg",
         "../../../assets/images/product-06 (2).jpg"
       ],
+      "qty": 1,
       "colors": [
         "blue",
         "red",
         "orange"
       ],
-      "size": "S,M,L",
+      "size": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
       "id": 4
     }
   ],

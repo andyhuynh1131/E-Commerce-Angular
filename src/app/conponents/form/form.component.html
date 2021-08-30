@@ -1,0 +1,43 @@
+<div class="main">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h3>Form {{this.id==0? 'thêm':'chỉnh sửa'}} </h3>
+    <div class="fluid">
+      <div class="field">
+        <label for="name">Tên sản phẩm :</label>
+        <input id="name" type="text" formControlName="name" required pInputText>
+        <span *ngIf="form.controls.name.invalid && form.controls.name.touched" class="errorMessage">* Tên bao gồm chữ và
+          số</span>
+      </div>
+      <div class="field">
+        <label for="price">Giá :</label>
+        <input id="price" type="text" formControlName="price" required pInputText>
+        <span *ngIf="form.controls.price.invalid && form.controls.price.touched" class="errorMessage">* Giá phải là
+          số bắt đầu khác 0</span>
+      </div>
+      <div class="field">
+        <label for="images">Hình ảnh :</label>
+        <input id="images" type="text" formControlName="image" required pInputText>
+        <span *ngIf="form.controls.image.invalid && form.controls.image.touched" class="errorMessage">* Cách nhau bởi
+          dấu
+          phẩy cho mỗi hình</span>
+      </div>
+      <div class="field">
+        <label for="colors">Màu sắc :</label>
+        <input id="colors" type="text" formControlName="colors" required pInputText>
+        <span *ngIf="form.controls.colors.invalid && form.controls.colors.touched" class="errorMessage">* Cách nhau bởi
+          dấu phẩy cho mỗi màu</span>
+      </div>
+      <div class="field">
+        <label for="size">Kích cỡ :</label>
+        <input id="size" type="text" formControlName="size" required pInputText>
+        <span *ngIf="form.controls.size.invalid && form.controls.size.touched" class="errorMessage">* Cách nhau bởi dấu
+          phẩy cho mỗi size</span>
+      </div>
+    </div>
+    <div class="control-form">
+      <button pButton type="submit" [disabled]="form.invalid" label="Thêm sản phẩm" class="p-button-success"></button>
+      <button pButton type="button" label="Thoát" class="p-button-danger"></button>
+    </div>
+
+  </form>
+</div>
