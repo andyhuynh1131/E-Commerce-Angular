@@ -26,6 +26,7 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0)
     this.route.paramMap.subscribe((param: ParamMap) => {
       this.id = Number(param.get('id'));
     });

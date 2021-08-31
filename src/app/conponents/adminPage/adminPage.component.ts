@@ -17,6 +17,7 @@ export class AdminPageComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scrollTo(0, 0)
     this.getAllProducts();
   }
   //Lấy tất cả sản phẩm 
@@ -34,22 +35,21 @@ export class AdminPageComponent implements OnInit {
   };
   //xoá sản phẩm 
   remove(id: number) {
+
     const confirmRemove = confirm('Bạn có chắc chắn muốn xoá ?')
     if (confirmRemove) {
-      this.productService.removeProduct(id).subscribe(res => {
+      this.productService.removeProduct(id).subscribe(() => {
         this.showSuccess('Xoá thành công');
-        this.removeById(res.id);
+        this.removeSuccess();
+
       }, () => {
         this.showError('Xoá thất bại')
       })
     }
   };
   // Xoá sản phẩm trên giao diện khi thành công
-  removeById(id: number) {
-    const index = this.listProduct.findIndex((x: any) => x.id === id)
-    if (index) {
-      this.listProduct.splice(index, 1)
-    }
+  removeSuccess() {
+    this.productService.getProducts().subscribe(x => this.listProduct = x)
   };
   // Toast thành công
   showSuccess(mess: string) {
