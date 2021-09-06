@@ -13,6 +13,8 @@ import { ButtonModule } from 'primeng/button';
 import { AvatarModule } from 'primeng/avatar';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+
 
 
 import { AppComponent } from './app.component';
@@ -64,6 +66,7 @@ import { FormComponent } from './conponents/form/form.component';
     AvatarModule,
     TableModule,
     ToastModule,
+    ConfirmPopupModule,
   ],
   providers: [
     ProductService,

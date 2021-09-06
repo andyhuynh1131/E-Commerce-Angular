@@ -13,25 +13,25 @@ import { MessageService } from 'primeng/api';
   providers: [MessageService]
 })
 export class FormComponent implements OnInit {
+  displayDialog: boolean = false
   id: number = 0;
   form!: FormGroup;
-  product: any = {}
-
-
+  product: any = {};
   constructor(private fb: FormBuilder,
     private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router) {
-
   }
 
   ngOnInit() {
     window.scrollTo(0, 0)
-    this.route.paramMap.subscribe((param: ParamMap) => {
-      this.id = Number(param.get('id'));
-    });
-
-    this.getProductByid(this.id)
+    this.isEdit();
+    if (this.id !== 0) {
+      this.getProductByid(this.id);
+    }
+    this.createForm();
+  }
+  createForm(): void {
     this.form = this.fb.group(
       {
         id: this.id,
@@ -42,11 +42,14 @@ export class FormComponent implements OnInit {
         size: ['', Validators.required],
       }
     )
-
-
+  }
+  isEdit(): void {
+    this.route.paramMap.subscribe((param: ParamMap) => {
+      this.id = Number(param.get('id'));
+    });
 
   }
-  onSubmit() {
+  onSubmit(): void {
     if (this.id === 0) {
       this.create(this.form.value);
     } else {
@@ -54,7 +57,8 @@ export class FormComponent implements OnInit {
     }
 
   }
-  getProductByid(id: number) {
+  // Gan du lieu vao form
+  getProductByid(id: number): void {
     this.productService.getProductbyId(id).subscribe(x => {
       this.product = x
       Object.keys(this.form.controls).forEach(key => {
@@ -63,10 +67,9 @@ export class FormComponent implements OnInit {
     })
   }
   // Tạo sản phẩm mới
-  create(data: any) {
+  create(data: any): void {
     this.productService.createProduct(data).subscribe(() => {
-      alert('Tạo thành công !');
-      this.router.navigate(['/admin']);
+      this.displayDialog = true;
     },
       (err: any) => {
         console.log(err);
@@ -75,15 +78,36 @@ export class FormComponent implements OnInit {
 
   };
   // chỉnh sửa sản phẩm
-  edit() {
+  edit(): void {
     this.productService.editProduct(this.form.value).subscribe(() => {
-      alert('Chỉnh sửa thành công !');
-      this.router.navigate(['/admin']);
+      this.displayDialog = true;
     },
       (err) => {
         console.log(err);
       }
     )
   };
-
+  backToAdminpage(): void {
+    if (this.isChangeDataForm()) {
+      const conFirmLog = confirm('Mọi dữ liệu vẫn chưa thay đổi, bạn vẫn muốn thoát ?')
+      if (conFirmLog) {
+        this.router.navigate(['/admin'])
+      }
+    } else {
+      this.router.navigate(['/admin'])
+    }
+  }
+  // Check du lieu co thay doi khong
+  isChangeDataForm(): boolean {
+    if (this.form.controls.name.touched || this.form.controls.price.touched
+      || this.form.controls.image.touched || this.form.controls.colors.touched
+      || this.form.controls.size.touched) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  navigate() {
+    this.router.navigate(['/admin'])
+  }
 }

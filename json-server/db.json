@@ -83,6 +83,25 @@
         "XL"
       ],
       "id": 4
+    },
+    {
+      "id": 6,
+      "name": "huynh ngoc hoang phuc",
+      "price": "100000",
+      "image": [
+        "../../../assets/images/product-06 (1).jpg",
+        "../../../assets/images/product-06 (2).jpg"
+      ],
+      "colors": [
+        "orange",
+        "red",
+        "pink"
+      ],
+      "size": [
+        "M",
+        "L",
+        "XL"
+      ]
     }
   ],
   "acccounts": [

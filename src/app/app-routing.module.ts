@@ -17,6 +17,7 @@ const routesConfig: Routes = [
   { path: 'admin', component: AdminPageComponent },
   { path: 'form', component: FormComponent },
   { path: 'form/:id', component: FormComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 

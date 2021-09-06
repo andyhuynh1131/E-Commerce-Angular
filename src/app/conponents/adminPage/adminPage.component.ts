@@ -13,6 +13,7 @@ export class AdminPageComponent implements OnInit {
   cols: any = []
   displayDialog: boolean = false
   displayFormEdit: boolean = false
+  idCurrent: number = 0
   constructor(private productService: ProductService, private messageService: MessageService) {
   }
 
@@ -35,17 +36,14 @@ export class AdminPageComponent implements OnInit {
   };
   //xoá sản phẩm 
   remove(id: number) {
-
-    const confirmRemove = confirm('Bạn có chắc chắn muốn xoá ?')
-    if (confirmRemove) {
-      this.productService.removeProduct(id).subscribe(() => {
-        this.showSuccess('Xoá thành công');
-        this.removeSuccess();
-
-      }, () => {
-        this.showError('Xoá thất bại')
-      })
-    }
+    this.productService.removeProduct(id).subscribe(() => {
+      this.showSuccess('Xoá thành công');
+      this.removeSuccess();
+      this.displayDialog = false;
+    }, () => {
+      this.showError('Xoá thất bại')
+      this.displayDialog = false;
+    })
   };
   // Xoá sản phẩm trên giao diện khi thành công
   removeSuccess() {
@@ -59,7 +57,10 @@ export class AdminPageComponent implements OnInit {
   showError(mess: string) {
     this.messageService.add({ key: 'error', severity: 'error', detail: mess });
   };
-
+  showDialog(id: number): void {
+    this.idCurrent = id
+    this.displayDialog = true;
+  }
 
 
 }

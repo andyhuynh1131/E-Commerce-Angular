@@ -34,12 +34,19 @@
               </a>
               <a>
                 <i class="pi pi-trash" style="font-size: 1rem; color: red;cursor: pointer;"
-                  (click)="remove(product.id)"></i>
+                  (click)="showDialog(product.id)"></i>
               </a>
             </td>
           </tr>
         </ng-template>
       </p-table>
+      <p-dialog header="Chú ý !!!" [(visible)]="displayDialog" [style]="{width: '30vw'}" [modal]="true">
+        <p>Bạn có chắc chắn muốn xoá sản phẩm ?</p>
+        <ng-template pTemplate="footer">
+          <p-button (click)="displayDialog=false" label="Không" styleClass="p-button-text"></p-button>
+          <p-button (click)="remove(idCurrent)" label="Có"></p-button>
+        </ng-template>
+      </p-dialog>
     </div>
   </div>
 </div>
