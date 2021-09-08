@@ -33,8 +33,8 @@
       </div>
       <div class="body-content-down">
         <div class="color">
-          <label class="custom-radio" *ngFor="let item of product.colors" [style.background]="item">
-            <input type="radio" name="color" (click)="handleClickColor(item)" class="btn-color">
+          <label class="custom-radio" *ngFor="let item of product.colors" [style.background]="item.color">
+            <input type="checkbox" name="color" (change)="ChooseColor(item.color)" class="btn-color">
             <span class="radio-btn">
               <span class="material-icons">
                 done
@@ -46,8 +46,8 @@
         <div class="size">
           <div class="color">
             <label class="custom-radio-size" *ngFor="let item of product.size">
-              <span class="name-size">{{item}}</span>
-              <input type="radio" name="size" (click)="handleClickSize(item)">
+              <span class="name-size">{{item.size}}</span>
+              <input type="checkbox" name="size" (change)="handleClickSize(item.size)">
               <span class="radio-btn-size">
                 <span class="material-icons">
                   done
@@ -61,8 +61,7 @@
         <span class="material-icons" (click)="minus()">
           remove_circle
         </span>
-        <input id="text_value" type="text" [value]="product.qty <= 0 ? 1 : product.qty " [(ngModel)]="product.qty"
-          (input)="chaneQty()">
+        <input id="text_value" type="text" [(ngModel)]="product.qty" (input)="chaneQty()">
         <span class="material-icons" (click)="plus()">
           add_circle
         </span>
@@ -80,8 +79,8 @@
       <h3>Thông tin chi tiết:</h3><br>
       <p>Tên sản phẩm: {{product.name}}</p>
       <p>Giá : {{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
-      <p>Màu sắc : {{product.color}}</p>
-      <p>Size : {{product.sizeChosen}}</p>
+      <p>Màu sắc : <span *ngFor="let item of product.colors">{{item.isChosen? item.color+', ':null}}</span> </p>
+      <p>Size : <span *ngFor="let item of product.size">{{item.isChosen? item.size+', ':null}}</span></p>
       <p>Số lượng : {{product.qty}}</p>
       <p>Tổng tiền : {{product.price * product.qty | currency:' ':'symbol':'1.0-1'}} vnđ</p>
     </div>

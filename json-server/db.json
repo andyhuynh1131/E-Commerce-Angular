@@ -10,15 +10,36 @@
         "../../../assets/images/product-01 (2).jpg"
       ],
       "colors": [
-        "blue",
-        "red",
-        "orange"
+        {
+          "color": "blue",
+          "isChosen": false
+        },
+        {
+          "color": "red",
+          "isChosen": false
+        },
+        {
+          "color": "orange",
+          "isChosen": false
+        }
       ],
       "size": [
-        "S",
-        "M",
-        "L",
-        "XL"
+        {
+          "size": "S",
+          "isChosen": false
+        },
+        {
+          "size": "M",
+          "isChosen": false
+        },
+        {
+          "size": "L",
+          "isChosen": false
+        },
+        {
+          "size": "XL",
+          "isChosen": false
+        }
       ]
     },
     {
@@ -31,15 +52,36 @@
         "../../../assets/images/product-02 (2).jpg"
       ],
       "colors": [
-        "blue",
-        "red",
-        "orange"
+        {
+          "color": "blue",
+          "isChosen": false
+        },
+        {
+          "color": "red",
+          "isChosen": false
+        },
+        {
+          "color": "orange",
+          "isChosen": false
+        }
       ],
       "size": [
-        "S",
-        "M",
-        "L",
-        "XL"
+        {
+          "size": "S",
+          "isChosen": false
+        },
+        {
+          "size": "M",
+          "isChosen": false
+        },
+        {
+          "size": "L",
+          "isChosen": false
+        },
+        {
+          "size": "XL",
+          "isChosen": false
+        }
       ]
     },
     {
@@ -52,15 +94,36 @@
         "../../../assets/images/product-05 (2).jpg"
       ],
       "colors": [
-        "blue",
-        "red",
-        "orange"
+        {
+          "color": "blue",
+          "isChosen": false
+        },
+        {
+          "color": "red",
+          "isChosen": false
+        },
+        {
+          "color": "orange",
+          "isChosen": false
+        }
       ],
       "size": [
-        "S",
-        "M",
-        "L",
-        "XL"
+        {
+          "size": "S",
+          "isChosen": false
+        },
+        {
+          "size": "M",
+          "isChosen": false
+        },
+        {
+          "size": "L",
+          "isChosen": false
+        },
+        {
+          "size": "XL",
+          "isChosen": false
+        }
       ]
     },
     {
@@ -72,15 +135,36 @@
       ],
       "qty": 1,
       "colors": [
-        "blue",
-        "red",
-        "orange"
+        {
+          "color": "blue",
+          "isChosen": false
+        },
+        {
+          "color": "red",
+          "isChosen": false
+        },
+        {
+          "color": "orange",
+          "isChosen": false
+        }
       ],
       "size": [
-        "S",
-        "M",
-        "L",
-        "XL"
+        {
+          "size": "S",
+          "isChosen": false
+        },
+        {
+          "size": "M",
+          "isChosen": false
+        },
+        {
+          "size": "L",
+          "isChosen": false
+        },
+        {
+          "size": "XL",
+          "isChosen": false
+        }
       ],
       "id": 4
     },
@@ -88,19 +172,79 @@
       "id": 6,
       "name": "huynh ngoc hoang phuc",
       "price": "100000",
+      "qty": 1,
       "image": [
         "../../../assets/images/product-06 (1).jpg",
         "../../../assets/images/product-06 (2).jpg"
       ],
       "colors": [
-        "orange",
-        "red",
-        "pink"
+        {
+          "color": "blue",
+          "isChosen": false
+        },
+        {
+          "color": "red",
+          "isChosen": false
+        },
+        {
+          "color": "orange",
+          "isChosen": false
+        }
       ],
       "size": [
-        "M",
-        "L",
-        "XL"
+        {
+          "size": "S",
+          "isChosen": false
+        },
+        {
+          "size": "M",
+          "isChosen": false
+        },
+        {
+          "size": "L",
+          "isChosen": false
+        },
+        {
+          "size": "XL",
+          "isChosen": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "huynh ngoc hoang phuc",
+      "price": "100000",
+      "image": [
+        "../../../assets/images/product-06 (1).jpg",
+        "../../../assets/images/product-06 (2).jpg"
+      ],
+      "colors": [
+        {
+          "color": "orange",
+          "isChosen": false
+        },
+        {
+          "color": "red",
+          "isChosen": false
+        },
+        {
+          "color": "pink",
+          "isChosen": false
+        }
+      ],
+      "size": [
+        {
+          "size": "M",
+          "isChosen": false
+        },
+        {
+          "size": "L",
+          "isChosen": false
+        },
+        {
+          "size": "XL",
+          "isChosen": false
+        }
       ]
     }
   ],

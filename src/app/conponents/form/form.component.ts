@@ -62,7 +62,15 @@ export class FormComponent implements OnInit {
     this.productService.getProductbyId(id).subscribe(x => {
       this.product = x
       Object.keys(this.form.controls).forEach(key => {
-        this.form.controls[key].setValue(x[key])
+        if (key === 'colors') {
+          const listColors = x[key].map((x: any) => x.color)
+          this.form.controls[key].setValue(listColors)
+        } else if (key === 'size') {
+          const listSizes = x[key].map((x: any) => x.size)
+          this.form.controls[key].setValue(listSizes)
+        } else {
+          this.form.controls[key].setValue(x[key])
+        }
       })
     })
   }
@@ -73,7 +81,6 @@ export class FormComponent implements OnInit {
     },
       (err: any) => {
         console.log(err);
-
       })
 
   };

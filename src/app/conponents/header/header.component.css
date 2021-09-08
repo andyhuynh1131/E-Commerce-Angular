@@ -29,18 +29,38 @@ li:hover {
     box-shadow: rgba(149, 175, 160, 0.2) 0px 8px 24px;
 }
 .logo {
-    width: 30%;
+    width: 20%;
 }
 .logo h1 {
     font-weight: bold;
     color: #4267b2;
 }
 .right-header {
-    width: 30%;
+    width: 40%;
     align-items: center;
     justify-content: center;
     display: flex;
 }
+.search-input {
+    border: 0;
+    outline: 0;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.search {
+    width: 250px;
+    height: 40px;
+    border: 1px solid #888;
+    position: relative;
+    border-radius: 20px;
+}
+.search-button {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    opacity: 1;
+}
+
 .right-header span {
     font-size: 25px;
     color: #000;

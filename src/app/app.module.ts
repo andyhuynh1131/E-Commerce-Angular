@@ -27,6 +27,7 @@ import { CartComponent } from './conponents/Cart/Cart.component';
 import { HomeComponent } from './conponents/home/home.component';
 import { ProductDetailComponent } from './conponents/product-detail/product-detail.component';
 import { AdminPageComponent } from './conponents/adminPage/adminPage.component';
+import { SearchComponent } from './conponents/search/search.component';
 
 
 import { ProductService } from './service/Product.service';
@@ -35,6 +36,7 @@ import { ConfirmationService } from 'primeng/api';
 import { LoginComponent } from './conponents/login/login.component';
 import { AccCountService } from './service/AccCount.service';
 import { FormComponent } from './conponents/form/form.component';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 
@@ -51,7 +53,8 @@ import { FormComponent } from './conponents/form/form.component';
     ProductDetailComponent,
     LoginComponent,
     AdminPageComponent,
-    FormComponent
+    FormComponent,
+    SearchComponent
   ],
   imports: [
     FormsModule,
@@ -67,6 +70,7 @@ import { FormComponent } from './conponents/form/form.component';
     TableModule,
     ToastModule,
     ConfirmPopupModule,
+    InputTextModule
   ],
   providers: [
     ProductService,

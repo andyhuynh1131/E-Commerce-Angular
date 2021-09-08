@@ -1,0 +1,17 @@
+<div class="main">
+  <h2>Kết quả tìm kiếm {{listResult.length}} kết quả</h2>
+  <div class="listproduct">
+    <div class="item" *ngFor="let product of listResult">
+      <div routerLink="product/{{product.id}}" class="img">
+        <img [src]="product.image[0]" alt="">
+        <img [src]="product.image[1]" alt="">
+      </div>
+      <div class="info">
+        <p routerLink="product/{{product.id}}">{{product.name}}</p>
+        <del>399.999</del>
+        <p>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
+        <button (click)="addToCartById(product.id)">Thêm giỏ hàng</button>
+      </div>
+    </div>
+  </div>
+</div>

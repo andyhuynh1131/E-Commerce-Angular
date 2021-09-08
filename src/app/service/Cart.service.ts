@@ -8,8 +8,6 @@ export class CartService {
     listCart: any = []
     productlist = new BehaviorSubject<any>([]);
 
-
-
     getProducts(): Observable<any> {
         return this.productlist.asObservable()
     };
@@ -24,9 +22,11 @@ export class CartService {
         }
     };
 
-
-
-
+    remove(id: number): void {
+        const index = this.listCart.findIndex((x: any) => x.id === id)
+        this.listCart.splice(index, 1)
+        this.productlist.next(this.listCart)
+    }
     constructor() {
 
     }

@@ -22,17 +22,15 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     window.scrollTo(0, 0)
+    this.getProductByParam();
+    this.getProductsbyService();
+  };
+
+  getProductByParam() {
     this.route.paramMap.subscribe((param: ParamMap) => {
       this.id = Number(param.get('id'))
     });
-    this.getProductsbyService();
-
-
-
-
-  };
-
-
+  }
   getProductsbyService(): void {
     this.productService.getProducts().subscribe(x => {
       this.listProduct = x
@@ -73,7 +71,7 @@ export class ProductDetailComponent implements OnInit {
   };
 
   showDialog(): boolean {
-    if (this.product.sizeChosen && this.product.color) {
+    if (this.checkIsChosen(this.product.colors) && this.checkIsChosen(this.product.size)) {
       return true
     } else {
       alert('Vui lòng chọn màu và size sản phẩm')
@@ -86,13 +84,24 @@ export class ProductDetailComponent implements OnInit {
       this.display = !this.display;
     }
   };
-
-  handleClickColor(color: any) {
-    this.product.color = color
-  };
-
+  checkIsChosen(array: any): boolean {
+    const isChosen = array.some((element: any) => element.isChosen);
+    if (isChosen) {
+      return true
+    } else {
+      return false
+    }
+  }
   handleClickSize(size: any) {
-    this.product.sizeChosen = size
-  };
-
+    const result = this.product.size.find((x: any) => x.size == size)
+    if (result) {
+      result.isChosen = true
+    }
+  }
+  ChooseColor(color: any) {
+    const result = this.product.colors.find((x: any) => x.color == color)
+    if (result) {
+      result.isChosen = true
+    }
+  }
 }

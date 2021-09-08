@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AccCountService } from 'src/app/service/AccCount.service';
 import { CartService } from './../../service/Cart.service';
@@ -11,7 +12,9 @@ export class HeaderComponent implements OnInit {
   accCurrent: any = {}
   totalProduct: number = 0
 
-  constructor(private cartService: CartService, private accService: AccCountService) {
+  constructor(private cartService: CartService,
+    private accService: AccCountService,
+    private router: Router) {
   }
 
   getTotal() {
@@ -26,9 +29,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.getTotal();
-
     this.getUserLogin();
-
   };
 
 
@@ -39,7 +40,13 @@ export class HeaderComponent implements OnInit {
     }
 
   }
-
-
-
+  redirectTo(uri: string) {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
+      this.router.navigate([uri]));
+  }
+  SearchByName(name: any) {
+    if (name.value !== '') {
+      this.redirectTo(`/search/${name.value}`)
+    }
+  }
 }

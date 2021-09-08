@@ -16,7 +16,7 @@
       </div>
 
       <div class="name">
-        <div style="display: flex;align-items: center;justify-content: center;">
+        <div class="swap-img">
           <img [src]="item.image[0]" alt="">
           <img [src]="item.image[1]" alt="">
         </div>
@@ -33,10 +33,10 @@
             add_circle
           </span>
         </div>
-        <div style="display: flex;justify-content: center;margin: 5px;">
-          <label class="custom-radio" *ngFor="let color of item.colors" [style.background]="color">
-            <input type="radio" [checked]="color == item.color" name="color {{item.id}}"
-              (click)="handleClickColor(color, item.id)" class="btn-color">
+        <div class="swap-colors">
+          <label class="custom-radio" *ngFor="let color of item.colors" [style.background]="color.color">
+            <input type="checkbox" name="color" [checked]="color.isChosen" (change)="handleClickColor(color, item.id)"
+              class="btn-color">
             <span class="radio-btn">
               <span class="material-icons">
                 done
@@ -44,11 +44,10 @@
             </span>
           </label>
         </div>
-        <div style="display: flex;justify-content: center;margin-top: 15px;">
+        <div class="swap-size">
           <label class="custom-radio-size" *ngFor="let size of item.size">
-            <span class="name-size">{{size}}</span>
-            <input type="radio" [checked]="size == item.sizeChosen" name="size  {{item.id}}"
-              (click)="handleClickSize(size, item.id)">
+            <span class="name-size">{{size.size}}</span>
+            <input type="checkbox" name="size" [checked]="size.isChosen" (change)="handleClickSize(size, item.id)">
             <span class="radio-btn-size">
               <span class="material-icons">
                 done
@@ -79,8 +78,8 @@
     <h3>Thông tin chi tiết:</h3><br>
     <p>Tên sản phẩm: {{product.name}}</p>
     <p>Giá : {{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
-    <p>Màu sắc : {{product.color}}</p>
-    <p>Size : {{product.sizeChosen}}</p>
+    <p>Màu sắc : <span *ngFor="let item of product.colors">{{item.isChosen? item.color+', ':null}}</span></p>
+    <p>Size : <span *ngFor="let item of product.size">{{item.isChosen? item.size+', ':null}}</span></p>
     <p>Số lượng : {{product.qty}}</p>
     <p>Tổng tiền : {{product.price * product.qty | currency:' ':'symbol':'1.0-1'}} vnđ</p>
   </div>

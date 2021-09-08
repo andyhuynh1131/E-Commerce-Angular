@@ -10,15 +10,27 @@
         class="p-button-success"></button>
     </div>
     <div class="table">
-      <p-table [value]="listProduct">
+      <p-table #productTable [value]="listProduct" [globalFilterFields]="['id','name','price']">
+        <ng-template pTemplate="caption">
+          <div class="p-d-flex">
+            <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
+              (click)="clear(productTable)"></button>
+            <span class="p-input-icon-left p-ml-auto">
+              <i class="pi pi-search"></i>
+              <input pInputText type="text" (input)="productTable.filterGlobal($any($event.target).value, 'contains')"
+                placeholder="Tìm kiếm" />
+            </span>
+          </div>
+        </ng-template>
         <ng-template pTemplate="header">
           <tr>
             <th *ngFor="let item of cols" pSortableColumn="{{item.header}}">
-              {{item.header}}<p-sortIcon field="{{item.header}}">
-              </p-sortIcon>
+              <div class="p-d-flex p-jc-between p-ai-center">
+                {{item.header}}
+                <p-columnFilter type="text" field="{{item.header}}" display="menu"></p-columnFilter>
+              </div>
             </th>
             <th>Chức năng</th>
-
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-product>
@@ -26,15 +38,13 @@
             <td>{{product.id}}</td>
             <td>{{product.name}}</td>
             <td>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</td>
-            <td>{{product.colors}}</td>
-            <td>{{product.size}}</td>
+            <td> <span *ngFor="let item of product.colors">{{item.color+", "}}</span></td>
+            <td><span *ngFor="let item of product.size ">{{item.size+', '}}</span></td>
             <td>
-              <a routerLink="/form/{{product.id}}"> <i class="pi pi-pencil"
-                  style="font-size: 1rem; color: rgb(214, 214, 67);cursor: pointer;margin: 20px;"></i>
+              <a routerLink="/form/{{product.id}}"> <i class="pi pi-pencil"></i>
               </a>
               <a>
-                <i class="pi pi-trash" style="font-size: 1rem; color: red;cursor: pointer;"
-                  (click)="showDialog(product.id)"></i>
+                <i class="pi pi-trash" (click)="showDialog(product.id)"></i>
               </a>
             </td>
           </tr>

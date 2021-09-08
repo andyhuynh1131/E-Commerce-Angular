@@ -8,6 +8,7 @@ import { ProductDetailComponent } from 'src/app/conponents/product-detail/produc
 import { LoginComponent } from './conponents/login/login.component';
 import { AdminPageComponent } from './conponents/adminPage/adminPage.component';
 import { FormComponent } from './conponents/form/form.component';
+import { SearchComponent } from './conponents/search/search.component';
 
 const routesConfig: Routes = [
   { path: '', component: HomeComponent },
@@ -17,14 +18,13 @@ const routesConfig: Routes = [
   { path: 'admin', component: AdminPageComponent },
   { path: 'form', component: FormComponent },
   { path: 'form/:id', component: FormComponent },
+  { path: 'search/:name', component: SearchComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 
 @NgModule({
   imports: [RouterModule.forRoot(routesConfig)],
-
-
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

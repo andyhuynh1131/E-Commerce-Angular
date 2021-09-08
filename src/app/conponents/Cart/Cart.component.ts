@@ -21,13 +21,15 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     window.scrollTo(0, 0)
+    this.getAllProductInCart();
+  };
+
+  getAllProductInCart(): void {
     this.cartService.getProducts().subscribe(x => {
       this.listCart = x
-      this.updateSum()
-      console.log(this.listCart);
-
+      this.updateSum();
     })
-  };
+  }
 
   updateSum() {
     this.sumprice = this.listCart.reduce((acc: any, curr: any) => acc + curr.qty * curr.price, 0)
@@ -40,16 +42,14 @@ export class CartComponent implements OnInit {
       result.qty = result.qty - 1
       this.updateSum()
     } else {
-      const index = this.listCart.findIndex((x: any) => x.id === id)
-      this.listCart.splice(index, 1)
-      this.updateSum()
+      this.cartService.remove(id);
+      this.updateSum();
     }
 
   };
 
   plus(id: number) {
     const result = this.listCart.find((x: any) => x.id === id)
-
     result.qty = result.qty + 1
     this.updateSum()
 
@@ -82,18 +82,13 @@ export class CartComponent implements OnInit {
   };
 
   showDialog() {
-    console.log(this.listPay);
-
     if (this.listPay.length === 0) {
       alert('Vui lòng chọn sản phẩm để thanh toán')
     } else {
       for (let product of this.listPay) {
-        if (product.color && product.sizeChosen) {
+        if (this.checkIsChosen(product.colors) && this.checkIsChosen(product.size)) {
           this.display = true
-
         } else {
-          console.log(product.color, product.sizeChosen);
-
           alert(`Vui lòng chọn màu và kích cỡ của sản phẩm ${product.name}`)
           this.display = false
           break;
@@ -104,20 +99,34 @@ export class CartComponent implements OnInit {
 
   };
 
-  handleClickColor(color: any, id: number) {
-    const result = this.listCart.find((x: any) => x.id === id)
-    if (result) {
-      result.color = color
-    }
-  };
-
-  handleClickSize(size: any, id: number) {
-    const result = this.listCart.find((x: any) => x.id === id)
-    if (result) {
-      result.sizeChosen = size
+  checkIsChosen(array: any): boolean {
+    const isChosen = array.some((element: any) => element.isChosen);
+    if (isChosen) {
+      return true
+    } else {
+      return false
     }
   }
 
+  handleClickColor(color: any, id: number) {
+    const result = this.listCart.find((x: any) => x.id === id)
+    color.isChosen = !color.isChosen
+    if (result) {
+      let isChosen = result.colors.find((x: any) => x.color === color.color)
+      if (isChosen) {
+        isChosen = { ...color }
+      }
+    }
+  };
+  handleClickSize(size: any, id: number) {
+    const result = this.listCart.find((x: any) => x.id === id)
+    size.isChosen = !size.isChosen
 
-
+    if (result) {
+      let isChosen = result.size.find((x: any) => x.size === size.size)
+      if (isChosen) {
+        isChosen = { ...size }
+      }
+    }
+  }
 }

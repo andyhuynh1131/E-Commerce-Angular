@@ -10,9 +10,13 @@
     <h1>Huynh Phuc Shopping</h1>
   </div>
   <div class="right-header">
-    <span routerLink="/cart" class="material-icons">
-      search
-    </span>
+    <div class="search">
+      <input type="text" class="search-input" #inputsearch>
+      <span class="material-icons search-button" (click)="SearchByName(inputsearch)">
+        search
+      </span>
+    </div>
+
     <div class="cart">
       <span routerLink="/cart" class="material-icons">
         shopping_cart

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/service/Product.service';
 import { MessageService } from 'primeng/api';
+import { Table } from 'primeng/table';
 
 @Component({
   selector: 'app-adminPage',
@@ -60,6 +61,10 @@ export class AdminPageComponent implements OnInit {
   showDialog(id: number): void {
     this.idCurrent = id
     this.displayDialog = true;
+  }
+
+  clear(table: Table) {
+    table.clear();
   }
 
 

@@ -23,8 +23,12 @@ export class ProductService {
 
     createProduct(product: any): Observable<any> {
         product.image = product.image.split(',')
-        product.colors = product.colors.split(',')
-        product.size = product.size.split(',')
+        product.colors = product.colors.split(',').map((x: any) => {
+            return { color: x, isChosen: false }
+        })
+        product.size = product.size.split(',').map((x: any) => {
+            return { size: x, isChosen: false }
+        })
         return this.http.post(this.APIurl, product)
     };
 
