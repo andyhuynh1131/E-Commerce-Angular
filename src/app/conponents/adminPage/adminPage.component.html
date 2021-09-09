@@ -10,7 +10,7 @@
         class="p-button-success"></button>
     </div>
     <div class="table">
-      <p-table #productTable [value]="listProduct" [globalFilterFields]="['id','name','price']">
+      <p-table #productTable [value]="listProduct" [globalFilterFields]="['id','name','price','colors','size']">
         <ng-template pTemplate="caption">
           <div class="p-d-flex">
             <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
@@ -38,8 +38,8 @@
             <td>{{product.id}}</td>
             <td>{{product.name}}</td>
             <td>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</td>
-            <td> <span *ngFor="let item of product.colors">{{item.color+", "}}</span></td>
-            <td><span *ngFor="let item of product.size ">{{item.size+', '}}</span></td>
+            <td> <span *ngFor="let item of product.colors">{{item+", "}}</span></td>
+            <td><span *ngFor="let item of product.size ">{{item+', '}}</span></td>
             <td>
               <a routerLink="/form/{{product.id}}"> <i class="pi pi-pencil"></i>
               </a>

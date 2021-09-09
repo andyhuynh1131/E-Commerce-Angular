@@ -34,15 +34,20 @@ export class ProductDetailComponent implements OnInit {
   getProductsbyService(): void {
     this.productService.getProducts().subscribe(x => {
       this.listProduct = x
-      const result = this.listProduct.find((x: any) => x.id == this.id);
+      let result = this.listProduct.find((x: any) => x.id === this.id);
       if (result) {
+        result = this.ChangeObj(result)
         this.product = result
       }
-
     })
   }
-
-
+  // Mapping Object
+  ChangeObj(product: any): any {
+    product.colors = product.colors.map((x: any) => ({ color: x, isChosen: false }))
+    product.size = product.size.map((x: any) => ({ size: x, isChosen: false }))
+    product.isOld = true
+    return product
+  }
   minus() {
     if (this.product.qty > 1) {
       this.product.qty -= 1

@@ -25,7 +25,13 @@ export class CartComponent implements OnInit {
   };
 
   getAllProductInCart(): void {
-    this.cartService.getProducts().subscribe(x => {
+    this.cartService.getProducts().subscribe((x: any) => {
+      //Kiem tra da chon mau chua 
+      x.map((y: any) => {
+        if (!y.isOld) {
+          y = this.ChangeObj(y)
+        }
+      })
       this.listCart = x
       this.updateSum();
     })
@@ -70,6 +76,11 @@ export class CartComponent implements OnInit {
     }
 
   };
+  ChangeObj(product: any): any {
+    product.colors = product.colors.map((x: any) => ({ color: x, isChosen: false }))
+    product.size = product.size.map((x: any) => ({ size: x, isChosen: false }))
+    return product
+  }
 
   handelChange(id: number) {
     const result = this.listCart.find((x: any) => x.id === id)

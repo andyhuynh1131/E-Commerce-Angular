@@ -23,16 +23,19 @@ export class ProductService {
 
     createProduct(product: any): Observable<any> {
         product.image = product.image.split(',')
-        product.colors = product.colors.split(',').map((x: any) => {
-            return { color: x, isChosen: false }
-        })
-        product.size = product.size.split(',').map((x: any) => {
-            return { size: x, isChosen: false }
-        })
+        product.colors = product.colors.split(',')
+        product.size = product.size.split(',')
         return this.http.post(this.APIurl, product)
     };
 
     editProduct(product: any): Observable<any> {
+        if (typeof product.image === 'string') {
+            product.image = product.image.split(',')
+        } else if (typeof product.colors === 'string') {
+            product.colors = product.colors.split(',')
+        } else if (typeof product.size === 'string') {
+            product.size = product.size.split(',')
+        }
         return this.http.put(`${this.APIurl}/${product.id}`, product)
     };
 

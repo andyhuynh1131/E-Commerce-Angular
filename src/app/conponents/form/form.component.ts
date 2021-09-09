@@ -35,7 +35,7 @@ export class FormComponent implements OnInit {
     this.form = this.fb.group(
       {
         id: this.id,
-        name: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9\\s]+$')]],
+        name: ['', [Validators.required, Validators.pattern('^([a-zA-Z\u00C0-\u024F\u1E00-\u1EFF\\s0-9])+$')]],
         price: ['', [Validators.pattern('^[1-9]{1}[0-9]*$'), Validators.required]],
         image: ['', Validators.required],
         colors: ['', Validators.required],
@@ -62,15 +62,7 @@ export class FormComponent implements OnInit {
     this.productService.getProductbyId(id).subscribe(x => {
       this.product = x
       Object.keys(this.form.controls).forEach(key => {
-        if (key === 'colors') {
-          const listColors = x[key].map((x: any) => x.color)
-          this.form.controls[key].setValue(listColors)
-        } else if (key === 'size') {
-          const listSizes = x[key].map((x: any) => x.size)
-          this.form.controls[key].setValue(listSizes)
-        } else {
-          this.form.controls[key].setValue(x[key])
-        }
+        this.form.controls[key].setValue(x[key])
       })
     })
   }
