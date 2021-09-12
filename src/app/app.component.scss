@@ -6,41 +6,39 @@
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
     user-select: none;
-    
     font-size: 13px;
     font-family: "Roboto", sans-serif;
 }
-ul{
-    list-style: none
+ul {
+    list-style: none;
 }
-a{
+a {
     text-align: none;
-    color: unset
+    color: unset;
 }
-a:hover{
+a:hover {
     color: $main-color;
 }
-img{ width: 100%}
+img {
+    width: 100%;
+}
 
-.header{
+.header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
-
 }
-.slider{
+.slider {
     height: auto;
     min-height: 100vh;
     width: 100%;
     margin-bottom: 50px;
 }
-.footer{
+.footer {
     margin-top: 50px;
-    
-    
 }
-.banner{
-      margin-left: 50px;  
+.banner {
+    margin-left: 50px;
 }

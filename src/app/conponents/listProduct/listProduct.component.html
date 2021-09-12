@@ -2,49 +2,19 @@
   <h3>Các Sản Phẩm Bán Chạy Trong Tuần</h3>
   <div class="list-product">
     <div class="item" *ngFor="let product of listProduct">
-      <div routerLink="product/{{product.id}}" class="img">
-        <img [src]="product.image[0]" alt="">
-        <img [src]="product.image[1]" alt="">
-      </div>
-      <div class="info">
-        <p routerLink="product/{{product.id}}">{{product.name}}</p>
-        <del>399.999</del>
-        <p>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
-        <button (click)="addToCartById(product.id)">Thêm giỏ hàng</button>
-      </div>
+      <app-product (addTocart)="addToCartById($event)" [product]="product"></app-product>
     </div>
   </div>
 
   <h3>Các Sản Phẩm Mới</h3>
   <div class="list-product">
     <div class="item" *ngFor="let product of listProduct">
-      <div routerLink="product/{{product.id}}" class="img">
-        <img [src]="product.image[0]" alt="">
-        <img [src]="product.image[1]" alt="">
-      </div>
-      <div class="info">
-        <p routerLink="product/{{product.id}}">{{product.name}}</p>
-        <del>399.999</del>
-        <p>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
-        <button (click)="addToCartById(product.id)">Thêm giỏ hàng</button>
-      </div>
+      <app-product (addTocart)="addToCartById($event)" [product]="product"></app-product>
     </div>
   </div>
-
   <div class="list-product">
     <div class="item" *ngFor="let product of listProduct">
-      <div class="img" routerLink="product/{{product.id}}">
-        <img [src]="product.image[0]" alt="">
-        <img [src]="product.image[1]" alt="">
-      </div>
-      <div class="info">
-        <p routerLink="product/{{product.id}}">{{product.name}}</p>
-        <del>399.999 vnđ</del>
-        <p>{{product.price| currency:' ':'symbol':'1.0-1'}} vnđ</p>
-        <button (click)="addToCartById(product.id)">Thêm giỏ hàng</button>
-      </div>
+      <app-product (addTocart)="addToCartById($event)" [product]="product"></app-product>
     </div>
   </div>
-
-
 </div>

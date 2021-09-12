@@ -13,8 +13,6 @@ import { CartService } from './../../service/Cart.service';
 export class ListProductComponent implements OnInit {
 
   listProduct: any = []
-
-
   constructor(private productService: ProductService, private cartService: CartService) {
 
   }
@@ -27,9 +25,7 @@ export class ListProductComponent implements OnInit {
     this.getProductsbyService()
 
   }
-
-
-  addToCartById(id: number) {
+  addToCartById(id: any) {
     const result = this.listProduct.find((x: any) => x.id === id)
     this.cartService.addToCart(result)
   }

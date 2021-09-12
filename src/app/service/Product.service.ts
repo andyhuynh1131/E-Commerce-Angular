@@ -31,9 +31,11 @@ export class ProductService {
     editProduct(product: any): Observable<any> {
         if (typeof product.image === 'string') {
             product.image = product.image.split(',')
-        } else if (typeof product.colors === 'string') {
+        }
+        if (typeof product.colors === 'string') {
             product.colors = product.colors.split(',')
-        } else if (typeof product.size === 'string') {
+        }
+        if (typeof product.size === 'string') {
             product.size = product.size.split(',')
         }
         return this.http.put(`${this.APIurl}/${product.id}`, product)

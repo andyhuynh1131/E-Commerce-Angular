@@ -38,8 +38,8 @@
             <td>{{product.id}}</td>
             <td>{{product.name}}</td>
             <td>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</td>
-            <td> <span *ngFor="let item of product.colors">{{item+", "}}</span></td>
-            <td><span *ngFor="let item of product.size ">{{item+', '}}</span></td>
+            <td> <span *ngFor="let item of product.colors">{{item+' '}}</span></td>
+            <td><span *ngFor="let item of product.size ">{{item+ ' '}}</span></td>
             <td>
               <a routerLink="/form/{{product.id}}"> <i class="pi pi-pencil"></i>
               </a>

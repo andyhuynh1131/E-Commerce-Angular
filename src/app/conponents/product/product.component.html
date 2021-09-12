@@ -1,0 +1,14 @@
+<div class="main">
+  <div class="item">
+    <div routerLink="product/{{product.id}}" class="img">
+      <img [src]="product.image[0]" alt="">
+      <img [src]="product.image[1]" alt="">
+    </div>
+    <div class="info">
+      <p routerLink="product/{{product.id}}">{{product.name}}</p>
+      <del>399.999</del>
+      <p>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
+      <button (click)="addtoCartbyId(product.id)">Thêm giỏ hàng</button>
+    </div>
+  </div>
+</div>

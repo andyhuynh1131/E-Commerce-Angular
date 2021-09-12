@@ -4,8 +4,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProductService } from 'src/app/service/Product.service';
 import { MessageService } from 'primeng/api';
 
-
-
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -17,12 +15,12 @@ export class FormComponent implements OnInit {
   id: number = 0;
   form!: FormGroup;
   product: any = {};
+  url: any = []
   constructor(private fb: FormBuilder,
     private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router) {
   }
-
   ngOnInit() {
     window.scrollTo(0, 0)
     this.isEdit();
@@ -37,7 +35,7 @@ export class FormComponent implements OnInit {
         id: this.id,
         name: ['', [Validators.required, Validators.pattern('^([a-zA-Z\u00C0-\u024F\u1E00-\u1EFF\\s0-9])+$')]],
         price: ['', [Validators.pattern('^[1-9]{1}[0-9]*$'), Validators.required]],
-        image: ['', Validators.required],
+        image: [[], Validators.required],
         colors: ['', Validators.required],
         size: ['', Validators.required],
       }
@@ -62,12 +60,20 @@ export class FormComponent implements OnInit {
     this.productService.getProductbyId(id).subscribe(x => {
       this.product = x
       Object.keys(this.form.controls).forEach(key => {
-        this.form.controls[key].setValue(x[key])
+        if (key !== 'image') {
+          this.form.controls[key].setValue(x[key])
+        } else if (x[key]) {
+          this.url = this.url.concat(x[key])
+        }
       })
+    }, () => {
+      this.router.navigate(['/form'])
     })
   }
   // Tạo sản phẩm mới
   create(data: any): void {
+
+
     this.productService.createProduct(data).subscribe(() => {
       this.displayDialog = true;
     },
@@ -109,4 +115,23 @@ export class FormComponent implements OnInit {
   navigate() {
     this.router.navigate(['/admin'])
   }
+  // doi hinh anh
+  selectFile(e: any) {
+    this.url = []
+    let string = ''
+    let files = e.target.files;
+    if (files) {
+      for (let file of files) {
+        string = string.concat(`../../../assets/images/${file.name},`)
+        const reader = new FileReader();
+        reader.onload = () => {
+          this.url.push(reader.result)
+        }
+        reader.readAsDataURL(file)
+      }
+    }
+    string = string.slice(0, -1)
+    this.form.value.image = string
+  }
+
 }

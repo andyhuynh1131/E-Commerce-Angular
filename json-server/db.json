@@ -2,8 +2,8 @@
   "products": [
     {
       "id": 1,
-      "name": "Áo thun Dinosaur 01",
       "qty": 1,
+      "name": "Áo thun Dinosaur 01",
       "price": 189000,
       "image": [
         "../../../assets/images/product-01 (1).jpg",
@@ -45,11 +45,10 @@
     {
       "id": 3,
       "name": "Áo thun Dinosaur 03",
-      "qty": 1,
       "price": 289000,
       "image": [
-        "../../../assets/images/product-05 (1).jpg",
-        "../../../assets/images/product-05 (2).jpg"
+        "../../../assets/images/product-04 (1).jpg",
+        "../../../assets/images/product-04 (2).jpg"
       ],
       "colors": [
         "red",
@@ -64,13 +63,13 @@
       ]
     },
     {
+      "id": 4,
       "name": "Áo thun Dinosaur 04",
       "price": 299000,
       "image": [
         "../../../assets/images/product-06 (1).jpg",
         "../../../assets/images/product-06 (2).jpg"
       ],
-      "qty": 1,
       "colors": [
         "red",
         "blue",
@@ -81,27 +80,6 @@
         "M",
         "L",
         "XL"
-      ],
-      "id": 4
-    },
-    {
-      "id": 5,
-      "name": "Huỳnh Ngọc Hoàng Phúc ahihi",
-      "price": "100000",
-      "image": [
-        "../../../assets/images/product-06 (1).jpg",
-        "../../../assets/images/product-06 (2).jpg"
-      ],
-      "colors": [
-        "orange",
-        "red",
-        "pink"
-      ],
-      "size": [
-        "M",
-        "L",
-        "XL",
-        "XLLL"
       ]
     }
   ],

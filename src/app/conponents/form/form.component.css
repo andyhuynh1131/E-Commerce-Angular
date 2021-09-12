@@ -45,3 +45,8 @@ button {
     color: red;
     font-size: 20px;
 }
+.img-upload {
+    height: 150px;
+
+    width: 100px;
+}
