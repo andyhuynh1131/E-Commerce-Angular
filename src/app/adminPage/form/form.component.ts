@@ -32,7 +32,6 @@ export class FormComponent implements OnInit {
   createForm(): void {
     this.form = this.fb.group(
       {
-        id: this.id,
         name: ['', [Validators.required, Validators.pattern('^([a-zA-Z\u00C0-\u024F\u1E00-\u1EFF\\s0-9])+$')]],
         price: ['', [Validators.pattern('^[1-9]{1}[0-9]*$'), Validators.required]],
         image: [[], Validators.required],
@@ -55,7 +54,7 @@ export class FormComponent implements OnInit {
     }
 
   }
-  // Gan du lieu vao form
+
   getProductByid(id: number): void {
     this.productService.getProductbyId(id).subscribe(x => {
       this.product = x
@@ -70,7 +69,7 @@ export class FormComponent implements OnInit {
       this.router.navigate(['/form'])
     })
   }
-  // Tạo sản phẩm mới
+
   create(data: any): void {
 
 
@@ -82,9 +81,11 @@ export class FormComponent implements OnInit {
       })
 
   };
-  // chỉnh sửa sản phẩm
+
   edit(): void {
-    this.productService.editProduct(this.form.value).subscribe(() => {
+    const newProduct = { ...this.form.value }
+    newProduct.id = this.id
+    this.productService.editProduct(newProduct).subscribe(() => {
       this.displayDialog = true;
     },
       (err) => {
@@ -102,7 +103,7 @@ export class FormComponent implements OnInit {
       this.router.navigate(['/admin'])
     }
   }
-  // Check du lieu co thay doi khong
+
   isChangeDataForm(): boolean {
     if (this.form.controls.name.touched || this.form.controls.price.touched
       || this.form.controls.image.touched || this.form.controls.colors.touched
@@ -115,7 +116,7 @@ export class FormComponent implements OnInit {
   navigate() {
     this.router.navigate(['/admin'])
   }
-  // doi hinh anh
+
   selectFile(e: any) {
     this.url = []
     let string = ''

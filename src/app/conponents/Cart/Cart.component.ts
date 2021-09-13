@@ -25,14 +25,13 @@ export class CartComponent implements OnInit {
   };
 
   getAllProductInCart(): void {
-    this.cartService.getProducts().subscribe((x: any) => {
-      //Kiem tra da chon mau chua 
-      x.map((y: any) => {
-        if (!y.isOld) {
-          y = this.ChangeObj(y)
+    this.cartService.getProducts().subscribe((listProduct: any) => {
+      listProduct.map((product: any) => {
+        if (!product.isOld) {
+          product = this.ChangeObj(product)
         }
       })
-      this.listCart = x
+      this.listCart = listProduct
       this.updateSum();
     })
   }
@@ -43,7 +42,7 @@ export class CartComponent implements OnInit {
   };
 
   minus(id: number) {
-    const result = this.listCart.find((x: any) => x.id === id)
+    const result = this.listCart.find((product: any) => product.id === id)
     if (result.qty > 1) {
       result.qty = result.qty - 1
       this.updateSum()
@@ -51,25 +50,23 @@ export class CartComponent implements OnInit {
       this.cartService.remove(id);
       this.updateSum();
     }
-
   };
 
   plus(id: number) {
-    const result = this.listCart.find((x: any) => x.id === id)
+    const result = this.listCart.find((product: any) => product.id === id)
     result.qty = result.qty + 1
     this.updateSum()
 
   };
 
   changeQty(qty: string, id: number) {
-    const y: number = +qty
-    if (y > 0) {
-      const result = this.listCart.find((x: any) => x.id === id)
+    if (Number(qty) > 0) {
+      const result = this.listCart.find((product: any) => product.id === id)
       if (result) {
         result.qty = qty
       }
     } else {
-      const result = this.listCart.find((x: any) => x.id === id)
+      const result = this.listCart.find((product: any) => product.id === id)
       if (result) {
         result.qty = 1
       }
@@ -77,17 +74,17 @@ export class CartComponent implements OnInit {
 
   };
   ChangeObj(product: any): any {
-    product.colors = product.colors.map((x: any) => ({ color: x, isChosen: false }))
-    product.size = product.size.map((x: any) => ({ size: x, isChosen: false }))
+    product.colors = product.colors.map((color: any) => ({ color: color, isChosen: false }))
+    product.size = product.size.map((size: any) => ({ size: size, isChosen: false }))
     return product
   }
 
   handelChange(id: number) {
-    const result = this.listCart.find((x: any) => x.id === id)
+    const result = this.listCart.find((product: any) => product.id === id)
     if (result.isChecked) {
       this.listPay.push(result)
     } else {
-      const index = this.listPay.findIndex((x: any) => x.id === result.id)
+      const index = this.listPay.findIndex((product: any) => product.id === result.id)
       this.listPay.splice(index, 1)
     }
   };
@@ -120,21 +117,21 @@ export class CartComponent implements OnInit {
   }
 
   handleClickColor(color: any, id: number) {
-    const result = this.listCart.find((x: any) => x.id === id)
+    const result = this.listCart.find((product: any) => product.id === id)
     color.isChosen = !color.isChosen
     if (result) {
-      let isChosen = result.colors.find((x: any) => x.color === color.color)
+      let isChosen = result.colors.find((product: any) => product.color === color.color)
       if (isChosen) {
         isChosen = { ...color }
       }
     }
   };
   handleClickSize(size: any, id: number) {
-    const result = this.listCart.find((x: any) => x.id === id)
+    const result = this.listCart.find((product: any) => product.id === id)
     size.isChosen = !size.isChosen
 
     if (result) {
-      let isChosen = result.size.find((x: any) => x.size === size.size)
+      let isChosen = result.size.find((product: any) => product.size === size.size)
       if (isChosen) {
         isChosen = { ...size }
       }

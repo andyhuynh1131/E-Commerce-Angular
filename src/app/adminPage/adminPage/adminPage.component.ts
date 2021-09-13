@@ -22,12 +22,11 @@ export class AdminPageComponent implements OnInit {
     window.scrollTo(0, 0)
     this.getAllProducts();
   }
-  //Lấy tất cả sản phẩm 
   getAllProducts() {
-    this.productService.getProducts().subscribe((x: any) => {
-      this.listProduct = x
-      if (x.length > 0) {
-        Object.keys(x[0]).forEach(key => {
+    this.productService.getProducts().subscribe((listProductbyServic: any) => {
+      this.listProduct = listProductbyServic
+      if (listProductbyServic.length > 0) {
+        Object.keys(listProductbyServic[0]).forEach(key => {
           if (key !== 'qty' && key !== 'image') {
             this.cols.push({ header: key })
           }
@@ -35,7 +34,6 @@ export class AdminPageComponent implements OnInit {
       }
     })
   };
-  //xoá sản phẩm 
   remove(id: number) {
     this.productService.removeProduct(id).subscribe(() => {
       this.showSuccess('Xoá thành công');
@@ -46,15 +44,12 @@ export class AdminPageComponent implements OnInit {
       this.displayDialog = false;
     })
   };
-  // Xoá sản phẩm trên giao diện khi thành công
   removeSuccess() {
-    this.productService.getProducts().subscribe(x => this.listProduct = x)
+    this.productService.getProducts().subscribe(listProductbyServic => this.listProduct = listProductbyServic)
   };
-  // Toast thành công
   showSuccess(mess: string) {
     this.messageService.add({ key: 'success', severity: 'success', detail: mess });
   };
-  // Toast thất bại
   showError(mess: string) {
     this.messageService.add({ key: 'error', severity: 'error', detail: mess });
   };

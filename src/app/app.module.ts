@@ -26,7 +26,7 @@ import { FooterComponent } from 'src/app/conponents/footer/footer.component';
 import { CartComponent } from './conponents/Cart/Cart.component';
 import { HomeComponent } from './conponents/home/home.component';
 import { ProductDetailComponent } from './conponents/product-detail/product-detail.component';
-import { AdminPageComponent } from './conponents/adminPage/adminPage.component';
+import { AdminPageComponent } from './adminPage/adminPage/adminPage.component';
 import { SearchComponent } from './conponents/search/search.component';
 import { ProductComponent } from './conponents/product/product.component';
 
@@ -36,8 +36,9 @@ import { CartService } from './service/Cart.service';
 import { ConfirmationService } from 'primeng/api';
 import { LoginComponent } from './conponents/login/login.component';
 import { AccCountService } from './service/AccCount.service';
-import { FormComponent } from './conponents/form/form.component';
+import { FormComponent } from './adminPage/form/form.component';
 import { InputTextModule } from 'primeng/inputtext';
+
 
 
 

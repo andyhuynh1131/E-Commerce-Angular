@@ -28,17 +28,17 @@ export class SearchComponent implements OnInit {
     });
   }
   getProductsbyService(): void {
-    this.productService.getProducts().subscribe(x => {
-      this.listProduct = x
+    this.productService.getProducts().subscribe(listProduct => {
+      this.listProduct = listProduct
       this.showResult();
     })
   }
   showResult() {
-    this.listResult = this.listProduct.filter((x: any) => x.name.includes(this.name))
+    this.listResult = this.listProduct.filter((product: any) => product.name.includes(this.name))
   }
 
   addToCartById(id: number) {
-    const result = this.listResult.find((x: any) => x.id === id)
+    const result = this.listResult.find((product: any) => product.id === id)
     this.cartService.addToCart(result)
   }
 }

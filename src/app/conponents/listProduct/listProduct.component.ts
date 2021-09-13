@@ -18,7 +18,7 @@ export class ListProductComponent implements OnInit {
   }
 
   getProductsbyService(): void {
-    this.productService.getProducts().subscribe(x => this.listProduct = x)
+    this.productService.getProducts().subscribe(listProductByService => this.listProduct = listProductByService)
   }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class ListProductComponent implements OnInit {
 
   }
   addToCartById(id: any) {
-    const result = this.listProduct.find((x: any) => x.id === id)
+    const result = this.listProduct.find((product: any) => product.id === id)
     this.cartService.addToCart(result)
   }
 

@@ -18,13 +18,13 @@ export class HeaderComponent implements OnInit {
   }
 
   getTotal() {
-    this.cartService.getProducts().subscribe(x => {
-      this.totalProduct = x.length
+    this.cartService.getProducts().subscribe(listProduct => {
+      this.totalProduct = listProduct.length
     })
   };
 
   getUserLogin() {
-    this.accService.isLogin().subscribe(x => { this.accCurrent = x })
+    this.accService.isLogin().subscribe(user => { this.accCurrent = user })
   }
 
   ngOnInit() {
@@ -40,9 +40,9 @@ export class HeaderComponent implements OnInit {
     }
 
   }
-  redirectTo(uri: string) {
+  redirectTo(url: string) {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() =>
-      this.router.navigate([uri]));
+      this.router.navigate([url]));
   }
   SearchByName(name: any) {
     if (name.value !== '') {

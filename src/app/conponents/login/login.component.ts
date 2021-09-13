@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.getACsbyService();
   }
   getACsbyService(): void {
-    this.ACservice.getAcs().subscribe(x => this.listAcc = x)
+    this.ACservice.getAcs().subscribe(listAccByService => this.listAcc = listAccByService)
   };
 
   onSubmit() {

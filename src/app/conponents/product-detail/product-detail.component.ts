@@ -34,7 +34,7 @@ export class ProductDetailComponent implements OnInit {
   getProductsbyService(): void {
     this.productService.getProducts().subscribe(x => {
       this.listProduct = x
-      let result = this.listProduct.find((x: any) => x.id === this.id);
+      let result = this.listProduct.find((product: any) => product.id === this.id);
       if (result) {
         result = this.ChangeObj(result)
         this.product = result
@@ -43,8 +43,8 @@ export class ProductDetailComponent implements OnInit {
   }
   // Mapping Object
   ChangeObj(product: any): any {
-    product.colors = product.colors.map((x: any) => ({ color: x, isChosen: false }))
-    product.size = product.size.map((x: any) => ({ size: x, isChosen: false }))
+    product.colors = product.colors.map((color: any) => ({ color: color, isChosen: false }))
+    product.size = product.size.map((size: any) => ({ size: size, isChosen: false }))
     product.isOld = true
     return product
   }
@@ -98,13 +98,13 @@ export class ProductDetailComponent implements OnInit {
     }
   }
   handleClickSize(size: any) {
-    const result = this.product.size.find((x: any) => x.size == size)
+    const result = this.product.size.find((size: any) => size.size == size)
     if (result) {
       result.isChosen = true
     }
   }
   ChooseColor(color: any) {
-    const result = this.product.colors.find((x: any) => x.color == color)
+    const result = this.product.colors.find((color: any) => color.color == color)
     if (result) {
       result.isChosen = true
     }
