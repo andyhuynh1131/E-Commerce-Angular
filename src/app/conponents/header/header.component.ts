@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AccCountService } from 'src/app/service/AccCount.service';
 import { CartService } from './../../service/Cart.service';
 
@@ -8,13 +8,18 @@ import { CartService } from './../../service/Cart.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnChanges {
   accCurrent: any = {}
   totalProduct: number = 0
+  @Input() isLoggin: boolean = false
 
   constructor(private cartService: CartService,
     private accService: AccCountService,
     private router: Router) {
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+
   }
 
   getTotal() {

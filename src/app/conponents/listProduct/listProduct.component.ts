@@ -30,4 +30,11 @@ export class ListProductComponent implements OnInit {
     this.cartService.addToCart(result)
   }
 
+  likeProduct(e: any) {
+    const result = this.listProduct.find((product: any) => product.id === e)
+    if (result) {
+      result.like += 1
+    }
+  }
+
 }

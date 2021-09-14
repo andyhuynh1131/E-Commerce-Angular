@@ -32,6 +32,7 @@ export class CartComponent implements OnInit {
         }
       })
       this.listCart = listProduct
+
       this.updateSum();
     })
   }
@@ -74,11 +75,11 @@ export class CartComponent implements OnInit {
 
   };
   ChangeObj(product: any): any {
-    product.colors = product.colors.map((color: any) => ({ color: color, isChosen: false }))
-    product.size = product.size.map((size: any) => ({ size: size, isChosen: false }))
+    product.colors = product.colors.map((name: any) => ({ color: name, isChosen: false }))
+    product.size = product.size.map((name: any) => ({ size: name, isChosen: false }))
+    product.isOld = true
     return product
   }
-
   handelChange(id: number) {
     const result = this.listCart.find((product: any) => product.id === id)
     if (result.isChecked) {
@@ -103,8 +104,6 @@ export class CartComponent implements OnInit {
         }
       }
     }
-
-
   };
 
   checkIsChosen(array: any): boolean {

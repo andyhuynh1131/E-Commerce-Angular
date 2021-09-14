@@ -1,0 +1,14 @@
+tr:nth-child(even) td {
+    background-color: lightblue;
+}
+.pi-pencil {
+    font-size: 1rem;
+    color: rgb(214, 214, 67);
+    cursor: pointer;
+    margin: 20px;
+}
+.pi-trash {
+    font-size: 1rem;
+    color: red;
+    cursor: pointer;
+}

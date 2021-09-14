@@ -58,13 +58,14 @@
       </div>
       <div class="numberTotal">
         {{item.price * item.qty | currency:' ':'symbol':'1.0-1'}} vnđ
+
       </div>
     </div>
   </ng-container>
 
 </div>
 <div class="sumprice">
-  <p>Tổng tiền: {{sumprice | currency:' ':'symbol':'1.0-1' }} vnđ</p>
+  <app-like [totalPrice]="sumprice"></app-like>
   <p>Số lượng: {{sumtotal}}</p>
 
   <button class="btn-pay" (click)="showDialog()">Thanh toán</button>

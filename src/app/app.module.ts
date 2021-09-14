@@ -1,3 +1,5 @@
+import { MytableModule } from './../../projects/mytable/src/lib/mytable.module';
+
 import { DialogModule } from 'primeng/dialog';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -38,6 +40,7 @@ import { LoginComponent } from './conponents/login/login.component';
 import { AccCountService } from './service/AccCount.service';
 import { FormComponent } from './adminPage/form/form.component';
 import { InputTextModule } from 'primeng/inputtext';
+import { LikeComponent } from './conponents/like/like.component';
 
 
 
@@ -58,7 +61,8 @@ import { InputTextModule } from 'primeng/inputtext';
     AdminPageComponent,
     FormComponent,
     SearchComponent,
-    ProductComponent
+    ProductComponent,
+    LikeComponent
   ],
   imports: [
     FormsModule,
@@ -74,7 +78,9 @@ import { InputTextModule } from 'primeng/inputtext';
     TableModule,
     ToastModule,
     ConfirmPopupModule,
-    InputTextModule
+    InputTextModule,
+    MytableModule
+
   ],
   providers: [
     ProductService,

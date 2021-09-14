@@ -10,7 +10,8 @@
         class="p-button-success"></button>
     </div>
     <div class="table">
-      <p-table #productTable [value]="listProduct" [globalFilterFields]="['id','name','price','colors','size']">
+      <!-- <p-table #productTable [value]="listProduct" [globalFilterFields]="['id','name','price','colors','size']"
+        [paginator]="true" [rows]="2">
         <ng-template pTemplate="caption">
           <div class="p-d-flex">
             <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
@@ -49,7 +50,7 @@
             </td>
           </tr>
         </ng-template>
-      </p-table>
+      </p-table> -->
       <p-dialog header="Chú ý !!!" [(visible)]="displayDialog" [style]="{width: '30vw'}" [modal]="true">
         <p>Bạn có chắc chắn muốn xoá sản phẩm ?</p>
         <ng-template pTemplate="footer">
@@ -59,4 +60,5 @@
       </p-dialog>
     </div>
   </div>
+  <lib-mytable [products]="listProduct" (removeById)="showDialog($event)"></lib-mytable>
 </div>

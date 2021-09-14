@@ -37,30 +37,27 @@ export class AdminPageComponent implements OnInit {
   remove(id: number) {
     this.productService.removeProduct(id).subscribe(() => {
       this.showSuccess('Xoá thành công');
-      this.removeSuccess();
+      this.removeSuccess(id);
       this.displayDialog = false;
     }, () => {
       this.showError('Xoá thất bại')
       this.displayDialog = false;
     })
   };
-  removeSuccess() {
-    this.productService.getProducts().subscribe(listProductbyServic => this.listProduct = listProductbyServic)
+  removeSuccess(id: number) {
+    this.listProduct = this.listProduct.filter((val: any) => val.id !== id);
   };
   showSuccess(mess: string) {
-    this.messageService.add({ key: 'success', severity: 'success', detail: mess });
+    this.messageService.add({ key: 'success', severity: 'success', detail: mess, life: 3000 });
   };
   showError(mess: string) {
-    this.messageService.add({ key: 'error', severity: 'error', detail: mess });
+    this.messageService.add({ key: 'error', severity: 'error', detail: mess, life: 3000 });
   };
   showDialog(id: number): void {
     this.idCurrent = id
     this.displayDialog = true;
   }
-
   clear(table: Table) {
     table.clear();
   }
-
-
 }

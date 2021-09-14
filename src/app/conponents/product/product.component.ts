@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -9,8 +9,8 @@ export class ProductComponent implements OnInit {
 
   @Input() product: any
   @Output() addTocart = new EventEmitter<number>();
-
   constructor() { }
+
 
   ngOnInit() {
   }
@@ -19,4 +19,7 @@ export class ProductComponent implements OnInit {
     this.addTocart.emit(id)
   }
 
+  likeProduct() {
+    this.product.like += 1
+  }
 }

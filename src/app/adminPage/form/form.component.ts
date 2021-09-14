@@ -34,7 +34,7 @@ export class FormComponent implements OnInit {
       {
         name: ['', [Validators.required, Validators.pattern('^([a-zA-Z\u00C0-\u024F\u1E00-\u1EFF\\s0-9])+$')]],
         price: ['', [Validators.pattern('^[1-9]{1}[0-9]*$'), Validators.required]],
-        image: [[], Validators.required],
+        image: ['', Validators.required],
         colors: ['', Validators.required],
         size: ['', Validators.required],
       }
@@ -48,11 +48,10 @@ export class FormComponent implements OnInit {
   }
   onSubmit(): void {
     if (this.id === 0) {
-      this.create(this.form.value);
+      this.create();
     } else {
       this.edit();
     }
-
   }
 
   getProductByid(id: number): void {
@@ -70,10 +69,11 @@ export class FormComponent implements OnInit {
     })
   }
 
-  create(data: any): void {
+  create(): void {
 
-
-    this.productService.createProduct(data).subscribe(() => {
+    const newProduct = { ...this.form.value }
+    newProduct.image = newProduct.image.replace('C:\\fakepath', '"../../../assets/images/')
+    this.productService.createProduct(newProduct).subscribe(() => {
       this.displayDialog = true;
     },
       (err: any) => {

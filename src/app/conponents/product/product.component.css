@@ -8,7 +8,6 @@
 .item {
     width: 100%;
     height: auto;
-    flex: 1;
 }
 .img {
     width: 100%;
@@ -55,6 +54,7 @@ p {
     cursor: pointer;
 }
 button {
+    margin: 10px;
     width: 150px;
     height: 35px;
     background-color: #4267b2;
@@ -62,4 +62,8 @@ button {
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
+}
+.like {
+    font-size: 15px;
+    color: gray;
 }
