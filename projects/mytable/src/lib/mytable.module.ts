@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { MytableComponent } from './mytable.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,7 +19,9 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     BrowserModule,
     ButtonModule,
     InputTextModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MultiSelectModule,
+    FormsModule
   ],
   exports: [
     MytableComponent
