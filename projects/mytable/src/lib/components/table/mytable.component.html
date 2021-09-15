@@ -10,7 +10,7 @@
                 <input pInputText type="text" (input)="productTable.filterGlobal($any($event.target).value, 'contains')"
                     placeholder="Tìm kiếm" />
             </span>
-            <p-multiSelect [options]="optioncols" [(ngModel)]="selectedColumns" optionLabel="header"
+            <p-multiSelect [options]="optionCols" [(ngModel)]="selectedColumns" optionLabel="header"
                 [style]="{minWidth: '200px'}" placeholder="Tìm kiếm theo cột">
             </p-multiSelect>
         </div>
@@ -28,21 +28,13 @@
     </ng-template>
     <ng-template pTemplate="body" let-product>
         <tr>
-            <!-- <td>{{product.id}}</td>
-            <td>{{product.name}}</td>
-            <td>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</td>
-            <td> <span *ngFor="let item of product.colors">{{item+' '}}</span></td>
-            <td><span *ngFor="let item of product.size ">{{item+ ' '}}</span></td>
-            <td>
-                <a routerLink="/form/{{product.id}}"><i class="pi pi-pencil"></i>
-                </a>
-                <a><i class="pi pi-trash" (click)="remove(product.id)"></i></a>
-            </td> -->
             <td *ngFor="let col of cols">{{product[col.field]}}</td>
             <td>
-                <a routerLink="/form/{{product.id}}"><i class="pi pi-pencil"></i>
-                </a>
-                <a><i class="pi pi-trash" (click)="remove(product.id)"></i></a>
+                <ng-container *ngIf="product['price']>100000">
+                    <a routerLink="/form/{{product.id}}"><i class="pi pi-pencil"></i>
+                    </a>
+                    <a><i class="pi pi-trash" (click)="remove(product.id)"></i></a>
+                </ng-container>
             </td>
         </tr>
     </ng-template>

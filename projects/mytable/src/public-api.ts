@@ -3,5 +3,5 @@
  */
 
 export * from './lib/mytable.service';
-export * from './lib/mytable.component';
+export * from './lib/components/table/mytable.component';
 export * from './lib/mytable.module';

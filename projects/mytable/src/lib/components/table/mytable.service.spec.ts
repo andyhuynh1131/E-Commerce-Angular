@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MytableService } from './mytable.service';
+import { MytableService } from '../mytable.service';
 
 describe('MytableService', () => {
   let service: MytableService;
