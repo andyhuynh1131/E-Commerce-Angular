@@ -1,10 +1,10 @@
 <div class="main">
   <ul class="navbar">
-    <li routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact:true}">Trang Chủ</li>
-    <li>Sản Phẩm</li>
-    <li>Liên Hệ</li>
-    <li>Phụ Kiện</li>
-    <li *ngIf="accCurrent[0]" routerLink="/admin" routerLinkActive="active">Quản Lí</li>
+    <li routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact:true}">{{'Home'| translate}}</li>
+    <li>{{'Products'| translate}}</li>
+    <li>{{'Contact US'| translate}}</li>
+    <li>{{'Element'| translate}}</li>
+    <li *ngIf="accCurrent[0]" routerLink="/admin" routerLinkActive="active">{{'Element'| translate}}</li>
   </ul>
   <div class="logo">
     <h1>Huynh Phuc Shopping</h1>
@@ -33,6 +33,12 @@
     </p-avatar>
     <div *ngIf="accCurrent[0]" class="logout">
       <a (click)="logOut()">Đăng xuất</a>
+    </div>
+    <div>
+      <select (change)="changeLang($event)">
+        <option value="en" [selected]="lang === 'en'">English</option>
+        <option value="vi" [selected]="lang === 'vi'">Vietnamese</option>
+      </select>
     </div>
   </div>
 </div>

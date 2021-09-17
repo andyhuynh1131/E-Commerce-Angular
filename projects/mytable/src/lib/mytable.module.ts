@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { MytableComponent } from '../lib/components/table/mytable.component'
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { FormsModule } from '@angular/forms';
 
@@ -19,7 +18,6 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     ButtonModule,
     InputTextModule,
-    AppRoutingModule,
     MultiSelectModule,
     FormsModule
   ],

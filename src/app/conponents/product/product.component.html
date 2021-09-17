@@ -8,7 +8,7 @@
       <p routerLink="product/{{product.id}}">{{product.name}}</p>
       <del>399.999</del>
       <p>{{product.price | currency:' ':'symbol':'1.0-1'}} vnđ</p>
-      <button (click)="addtoCartbyId(product.id)">Thêm giỏ hàng</button>
+      <button (click)="addtoCartbyId(product.id)">{{'Add to Cart' | translate}}</button>
     </div>
   </div>
 </div>

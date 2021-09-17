@@ -1,12 +1,12 @@
 <div class="main">
-  <h3>Các Sản Phẩm Bán Chạy Trong Tuần</h3>
+  <h3>{{'Best seller'| translate}}</h3>
   <div class="list-product">
     <div class="item" *ngFor="let product of listProduct">
       <app-product (addTocart)="addToCartById($event)" [product]="product"></app-product>
     </div>
   </div>
 
-  <h3>Các Sản Phẩm Mới</h3>
+  <h3>{{'New Products'| translate}}</h3>
   <div class="list-product">
     <div class="item" *ngFor="let product of listProduct">
       <app-product (addTocart)="addToCartById($event)" [product]="product"></app-product>

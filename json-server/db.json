@@ -146,24 +146,6 @@
         "L",
         "XL"
       ]
-    },
-    {
-      "name": "Huỳnh Ngọc Hoàng Phúc ahihi",
-      "price": "50000",
-      "image": [
-        "\"../../../assets/images/\\product-06 (1).jpg"
-      ],
-      "colors": [
-        "orange",
-        "red",
-        "pink"
-      ],
-      "size": [
-        "M",
-        "L",
-        "XL"
-      ],
-      "id": 8
     }
   ],
   "acccounts": [

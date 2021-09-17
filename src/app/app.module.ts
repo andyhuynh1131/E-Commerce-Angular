@@ -1,10 +1,10 @@
-import { MytableModule } from './../../projects/mytable/src/lib/mytable.module';
-
+import { LanguageInterceptor } from './interceptors/language.interceptor';
+import { MytableModule } from '@huynhphuc65501999/mytable-huynhphuc-lib';
 import { DialogModule } from 'primeng/dialog';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -42,8 +42,14 @@ import { FormComponent } from './adminPage/form/form.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { LikeComponent } from './conponents/like/like.component';
 
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "../assets/i18n/", ".json");
+}
 
 
 @NgModule({
@@ -79,14 +85,29 @@ import { LikeComponent } from './conponents/like/like.component';
     ToastModule,
     ConfirmPopupModule,
     InputTextModule,
-    MytableModule
+    MytableModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+
 
   ],
   providers: [
     ProductService,
     CartService,
     ConfirmationService,
-    AccCountService
+    AccCountService,
+    HttpClient,
+    TranslateService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LanguageInterceptor,
+      multi: true
+    }
   ],
 
   bootstrap: [AppComponent]

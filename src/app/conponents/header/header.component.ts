@@ -8,20 +8,22 @@ import { CartService } from './../../service/Cart.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, OnChanges {
+export class HeaderComponent implements OnInit {
   accCurrent: any = {}
   totalProduct: number = 0
+  lang: string = 'vi'
   @Input() isLoggin: boolean = false
 
   constructor(private cartService: CartService,
     private accService: AccCountService,
     private router: Router) {
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
 
-  }
-
+  ngOnInit() {
+    this.getTotal();
+    this.getUserLogin();
+    this.lang = localStorage.getItem('lang') || 'vi '
+  };
   getTotal() {
     this.cartService.getProducts().subscribe(listProduct => {
       this.totalProduct = listProduct.length
@@ -32,10 +34,9 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.accService.isLogin().subscribe(user => { this.accCurrent = user })
   }
 
-  ngOnInit() {
-    this.getTotal();
-    this.getUserLogin();
-  };
+  setLang() {
+    this.lang = localStorage.getItem('lang') || 'vi'
+  }
 
 
   logOut() {
@@ -54,4 +55,9 @@ export class HeaderComponent implements OnInit, OnChanges {
       this.redirectTo(`/search/${name.value}`)
     }
   }
+  changeLang(e: any) {
+    localStorage.setItem('lang', e.target.value)
+    window.location.reload()
+  }
+
 }

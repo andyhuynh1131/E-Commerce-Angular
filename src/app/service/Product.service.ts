@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
     private APIurl = 'http://localhost:3000/products';
-
+    lang: any
+    headers: any
     constructor(private http: HttpClient) {
 
     };
     getProducts() {
         return this.http.get(this.APIurl)
     };
-
 
     getProductbyId(id: number): Observable<any> {
         return this.http.get(`${this.APIurl}/${id}`)

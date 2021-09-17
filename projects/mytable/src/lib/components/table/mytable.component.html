@@ -31,7 +31,7 @@
             <td *ngFor="let col of cols">{{product[col.field]}}</td>
             <td>
                 <ng-container *ngIf="product['price']>100000">
-                    <a routerLink="/form/{{product.id}}"><i class="pi pi-pencil"></i>
+                    <a><i class="pi pi-pencil"></i>
                     </a>
                     <a><i class="pi pi-trash" (click)="remove(product.id)"></i></a>
                 </ng-container>

@@ -1,12 +1,12 @@
 <div class="main">
-  <h3>Giỏ hàng của bạn</h3>
+  <h3>{{'Your Cart'| translate}}</h3>
   <div class="title">
-    <div class="pay-title">Chọn thanh toán</div>
-    <div class="name">Sản phẩm</div>
-    <div class="price">Giá</div>
-    <div class="total">Số lượng</div>
+    <div class="pay-title">{{'ProductsPay'| translate}}</div>
+    <div class="name">{{'Products'| translate}}</div>
+    <div class="price">{{'Price'| translate}}</div>
+    <div class="total">{{'Amount'| translate}}</div>
     <div class="numberTotal">
-      Tổng Tiền
+      {{'TotalPrice'| translate}}
     </div>
   </div>
   <ng-container *ngFor="let item of listCart">
@@ -66,9 +66,9 @@
 </div>
 <div class="sumprice">
   <app-like [totalPrice]="sumprice"></app-like>
-  <p>Số lượng: {{sumtotal}}</p>
+  <p>{{'Amount'| translate}}: {{sumtotal}}</p>
 
-  <button class="btn-pay" (click)="showDialog()">Thanh toán</button>
+  <button class="btn-pay" (click)="showDialog()">{{'Payment'|translate}}</button>
 </div>
 <p-dialog header="Thông tin hoá đơn" [modal]="true" [(visible)]="display" [draggable]="false" [resizable]="false">
   <ng-container *ngIf="listPay.length==0">
