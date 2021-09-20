@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { LikeComponent } from './like.component';
+import { LikeComponent } from './total-price.component';
 
 describe('LikeComponent', () => {
   let component: LikeComponent;
@@ -11,9 +11,9 @@ describe('LikeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LikeComponent ]
+      declarations: [LikeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AccCountService } from 'src/app/service/AccCount.service';
+import { AccCountService } from 'src/app/service/ac-count.service';
 
 @Component({
   selector: 'app-login',

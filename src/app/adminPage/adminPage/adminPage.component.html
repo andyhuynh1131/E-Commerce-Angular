@@ -60,5 +60,6 @@
       </p-dialog>
     </div>
   </div>
-  <lib-mytable [products]="listProduct" (removeById)="showDialog($event)"></lib-mytable>
+  <lib-mytable [products]="listProduct" (removeById)="showDialog($event)" (editByProductId)="navigate($event)">
+  </lib-mytable>
 </div>

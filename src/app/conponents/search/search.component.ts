@@ -1,4 +1,4 @@
-import { CartService } from './../../service/Cart.service';
+import { CartService } from '../../service/Cart.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ProductService } from './../../service/Product.service';
 import { Component, OnInit } from '@angular/core';

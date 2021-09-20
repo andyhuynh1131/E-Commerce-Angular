@@ -1,4 +1,4 @@
-<p-table #productTable [columns]="selectedColumns" [value]="products"
+<p-table #productTable [columns]="selectColumns" [value]="products"
     [globalFilterFields]="['id','name','price','colors','size']" [paginator]="true" [rows]="4">
 
     <ng-template pTemplate="caption">
@@ -10,7 +10,7 @@
                 <input pInputText type="text" (input)="productTable.filterGlobal($any($event.target).value, 'contains')"
                     placeholder="Tìm kiếm" />
             </span>
-            <p-multiSelect [options]="optionCols" [(ngModel)]="selectedColumns" optionLabel="header"
+            <p-multiSelect [options]="optionCols" [(ngModel)]="setselectedColumns" optionLabel="header"
                 [style]="{minWidth: '200px'}" placeholder="Tìm kiếm theo cột">
             </p-multiSelect>
         </div>
@@ -31,7 +31,7 @@
             <td *ngFor="let col of cols">{{product[col.field]}}</td>
             <td>
                 <ng-container *ngIf="product['price']>100000">
-                    <a><i class="pi pi-pencil"></i>
+                    <a (click)="redirect(product.id)"><i class="pi pi-pencil"></i>
                     </a>
                     <a><i class="pi pi-trash" (click)="remove(product.id)"></i></a>
                 </ng-container>

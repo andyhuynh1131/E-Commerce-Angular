@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChange
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-
+  @Input() hihi: any
   @Input() product: any
   @Output() addTocart = new EventEmitter<number>();
   constructor() { }

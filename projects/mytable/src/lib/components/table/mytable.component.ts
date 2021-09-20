@@ -9,6 +9,7 @@ import { Table } from 'primeng/table';
 export class MytableComponent implements OnInit, OnChanges {
   @Input() products: any = []
   @Output() removeById = new EventEmitter<number>();
+  @Output() editByProductId = new EventEmitter<number>();
   selectColumns: any = [];
   cols: any = []
   optionCols: any = []
@@ -39,10 +40,16 @@ export class MytableComponent implements OnInit, OnChanges {
   remove(id: number) {
     this.removeById.emit(id)
   }
+
   @Input() get selectedColumns(): any[] {
     return this.selectColumns;
   }
-  set selectedColumns(val: any[]) {
+
+  set setselectedColumns(val: any[]) {
     this.cols = this.selectColumns.filter((col: any) => val.includes(col))
+  }
+
+  redirect(id: number) {
+    this.editByProductId.emit(id)
   }
 }

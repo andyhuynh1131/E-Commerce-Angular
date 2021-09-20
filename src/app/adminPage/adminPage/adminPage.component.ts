@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/service/Product.service';
 import { MessageService } from 'primeng/api';
@@ -15,7 +16,7 @@ export class AdminPageComponent implements OnInit {
   displayDialog: boolean = false
   displayFormEdit: boolean = false
   idCurrent: number = 0
-  constructor(private productService: ProductService, private messageService: MessageService) {
+  constructor(private router: Router, private productService: ProductService, private messageService: MessageService) {
   }
 
   ngOnInit() {
@@ -59,5 +60,8 @@ export class AdminPageComponent implements OnInit {
   }
   clear(table: Table) {
     table.clear();
+  }
+  navigate(id: number) {
+    this.router.navigate([`/form/${id}`]);
   }
 }

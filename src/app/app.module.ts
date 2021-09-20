@@ -1,5 +1,6 @@
+import { MytableModule } from './../../projects/mytable/src/lib/mytable.module';
+
 import { LanguageInterceptor } from './interceptors/language.interceptor';
-import { MytableModule } from '@huynhphuc65501999/mytable-huynhphuc-lib';
 import { DialogModule } from 'primeng/dialog';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -37,13 +38,17 @@ import { ProductService } from './service/Product.service';
 import { CartService } from './service/Cart.service';
 import { ConfirmationService } from 'primeng/api';
 import { LoginComponent } from './conponents/login/login.component';
-import { AccCountService } from './service/AccCount.service';
+import { AccCountService } from './service/ac-count.service';
 import { FormComponent } from './adminPage/form/form.component';
 import { InputTextModule } from 'primeng/inputtext';
-import { LikeComponent } from './conponents/like/like.component';
+
 
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LikeComponent } from './conponents/totalPrice/total-price.component';
+
+
+
 
 
 

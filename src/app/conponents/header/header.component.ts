@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { AccCountService } from 'src/app/service/AccCount.service';
-import { CartService } from './../../service/Cart.service';
+import { AccCountService } from 'src/app/service/ac-count.service';
+import { CartService } from '../../service/Cart.service';
 
 @Component({
   selector: 'app-header',

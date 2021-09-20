@@ -1,7 +1,23 @@
 <div class="main">
+  <div class="filter">
+    <h2>Tìm kiếm theo giá</h2>
+    <select (change)="handleChange($event)">
+      <option value="0,1000000000000">All</option>
+      <option value="0,200000">0-200.000đ</option>
+      <option value="200000,400000">200.000đ-400.000đ</option>
+    </select>
+  </div>
+
   <h3>{{'Best seller'| translate}}</h3>
   <div class="list-product">
     <div class="item" *ngFor="let product of listProduct">
+      <app-product (addTocart)="addToCartById($event)" [product]="product"></app-product>
+    </div>
+  </div>
+
+  <h3>Promotion</h3>
+  <div class="list-product">
+    <div class="item" *ngFor="let product of listPromotion">
       <app-product (addTocart)="addToCartById($event)" [product]="product"></app-product>
     </div>
   </div>

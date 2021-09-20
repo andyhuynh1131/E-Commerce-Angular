@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from './../../service/Cart.service';
+import { CartService } from '../../service/Cart.service';
 
 
 
@@ -23,6 +23,8 @@ export class CartComponent implements OnInit {
     window.scrollTo(0, 0)
     this.getAllProductInCart();
   };
+
+
 
   getAllProductInCart(): void {
     this.cartService.getProducts().subscribe((listProduct: any) => {

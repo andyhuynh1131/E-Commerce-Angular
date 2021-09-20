@@ -2,8 +2,8 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/cor
 
 @Component({
   selector: 'app-like',
-  templateUrl: './like.component.html',
-  styleUrls: ['./like.component.css']
+  templateUrl: './total-price.component.html',
+  styleUrls: ['./total-price.component.css']
 })
 export class LikeComponent implements OnInit, OnChanges {
   @Input() totalPrice: number = 0
