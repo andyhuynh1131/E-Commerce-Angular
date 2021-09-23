@@ -18,9 +18,8 @@
         <label for="images">Hình ảnh : <span class="required">*</span></label>
         <input id="images" type="file" (change)="selectFile($event)" formControlName="image" required pInputText
           multiple>
-        <span *ngIf="form.controls.image.invalid && form.controls.image.touched" class="errorMessage">* Cách nhau bởi
-          dấu
-          phẩy cho mỗi hình</span>
+        <span *ngIf=" form.controls.price.invalid && form.controls.image.touched" class="errorMessage">* Vui lòng chọn
+          hình</span>
       </div>
       <ng-container *ngFor="let item of url">
         <img class="img-upload" [src]="item" alt="">

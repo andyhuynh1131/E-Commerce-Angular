@@ -33,7 +33,7 @@
       </div>
       <div class="body-content-down">
         <div class="color">
-          <label class="custom-radio" *ngFor="let item of product.colors" [style.background]="item.color">
+          <label id="abc" class="custom-radio" *ngFor="let item of product.colors" [style.background]="item.color">
             <input type="checkbox" name="color" (change)="ChooseColor(item.color)" class="btn-color">
             <span class="radio-btn">
               <span class="material-icons">

@@ -8,9 +8,9 @@ import { ProductDetailComponent } from 'src/app/conponents/product-detail/produc
 import { LoginComponent } from './conponents/login/login.component';
 import { SearchComponent } from './conponents/search/search.component';
 import { AdminRoutingModule } from './adminPage/admin-routing.module';
-import { AdminPageComponent } from './adminPage/adminPage/adminPage.component';
 
-const routesConfig: Routes = [
+
+export const routesConfig: Routes = [
   { path: '', component: HomeComponent },
   { path: 'cart', component: CartComponent },
   { path: 'product/:id', component: ProductDetailComponent },

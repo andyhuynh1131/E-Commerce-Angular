@@ -68,7 +68,7 @@
   <app-like [totalPrice]="sumprice"></app-like>
   <p>{{'Amount'| translate}}: {{sumtotal}}</p>
 
-  <button class="btn-pay" (click)="showDialog()">{{'Payment'|translate}}</button>
+  <button class="btn-pay" (click)="showDialog()">{{'Payment'| translate}}</button>
 </div>
 <p-dialog header="Thông tin hoá đơn" [modal]="true" [(visible)]="display" [draggable]="false" [resizable]="false">
   <ng-container *ngIf="listPay.length==0">

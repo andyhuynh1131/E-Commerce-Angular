@@ -1,35 +1,68 @@
-import { TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './conponents/home/home.component';
+import { TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { Router } from '@angular/router'
+import { routesConfig } from './app-routing.module';
+import { CommonModule, Location } from '@angular/common'
+import { TranslateModule } from '@ngx-translate/core';
+
+
+
 
 describe('AppComponent', () => {
+
+  let location: Location;
+  let router: Router;
+  let fixture
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule.withRoutes(routesConfig),
+
+        HttpClientModule,
+        CommonModule,
+        TranslateModule.forChild(),
+        TranslateModule.forRoot()
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HomeComponent
       ],
     }).compileComponents();
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+  beforeEach(() => {
+    router = TestBed.get(Router)
+    location = TestBed.get(Location)
+    fixture = TestBed.createComponent(AppComponent)
+    router.initialNavigation()
+  })
 
-  it(`should have as title 'my-app'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('my-app');
-  });
+  it('navigate to "" redirects to /', fakeAsync(() => {
+    router.navigate([''])
+    tick()
+    expect(location.path()).toBe('/')
+  }))
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('my-app app is running!');
-  });
+
+  it('navigate to "login" redirects to /login', fakeAsync(() => {
+    router.navigate(['login'])
+    tick()
+    expect(location.path()).toBe('/login')
+  }))
+
+  it('navigate to "search/:name" redirects to /search/:name', fakeAsync(() => {
+    router.navigate(['search/aothun'])
+    tick()
+    expect(location.path()).toBe('/search/aothun')
+  }))
+
+  it('navigate to "**" redirects to /', fakeAsync(() => {
+    router.navigate(['/aasdasd'])
+    tick()
+    expect(location.path()).toBe('/')
+  }))
 });
+

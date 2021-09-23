@@ -46,6 +46,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LikeComponent } from './conponents/totalPrice/total-price.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -55,6 +56,7 @@ import { LikeComponent } from './conponents/totalPrice/total-price.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "../assets/i18n/", ".json");
 }
+
 
 
 @NgModule({
@@ -76,6 +78,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LikeComponent
   ],
   imports: [
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
@@ -113,6 +116,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       useClass: LanguageInterceptor,
       multi: true
     }
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
   ],
 
   bootstrap: [AppComponent]
