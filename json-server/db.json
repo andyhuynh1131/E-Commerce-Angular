@@ -83,26 +83,6 @@
       "id": 4
     },
     {
-      "name": "Áo thun Dinosaur 05",
-      "price": 199000,
-      "image": [
-        "../../../assets/images/product-05 (1).jpg",
-        "../../../assets/images/product-05 (2).jpg"
-      ],
-      "colors": [
-        "red",
-        "blue",
-        "orange"
-      ],
-      "size": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ],
-      "id": 5
-    },
-    {
       "qty": 1,
       "name": "Áo thun 06",
       "price": 200000,
@@ -181,6 +161,26 @@
         "XL"
       ],
       "id": 9
+    },
+    {
+      "qty": 1,
+      "name": "Áo thun 06",
+      "price": 200000,
+      "image": [
+        "../../../assets/images/product-01 (1).jpg",
+        "../../../assets/images/product-01 (2).jpg"
+      ],
+      "colors": [
+        "orange",
+        "red",
+        "blue"
+      ],
+      "size": [
+        "L",
+        "X",
+        "XL"
+      ],
+      "id": 10
     }
   ],
   "acccounts": [

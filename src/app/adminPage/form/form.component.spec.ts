@@ -45,58 +45,58 @@ describe('FormComponent', () => {
 
 
 
-  it('Create product ', () => {
-    nameEl.nativeElement.value = 'Áo thun 06'
-    priceEl.nativeElement.value = '200000'
-    colorEl.nativeElement.value = 'orange,yellow,red'
-    sizeEl.nativeElement.value = 'X,XL,XXL'
+  // it('Create product ', () => {
+  //   nameEl.nativeElement.value = 'Áo thun 06'
+  //   priceEl.nativeElement.value = '200000'
+  //   colorEl.nativeElement.value = 'orange,yellow,red'
+  //   sizeEl.nativeElement.value = 'X,XL,XXL'
 
-    button.triggerEventHandler('click', null)
-    const productTest = {
+  //   button.triggerEventHandler('click', null)
+  //   const productTest = {
 
-      "qty": 1,
-      "name": "Áo thun 06",
-      "price": 200000,
-      "image": '../../../assets/images/product-01 (1).jpg,../../../assets/images/product-01 (2).jpg'
-      ,
-      "colors": 'orange,red,blue',
-      "size": 'L,X,XL'
+  //     "qty": 1,
+  //     "name": "Áo thun 06",
+  //     "price": 200000,
+  //     "image": '../../../assets/images/product-01 (1).jpg,../../../assets/images/product-01 (2).jpg'
+  //     ,
+  //     "colors": 'orange,red,blue',
+  //     "size": 'L,X,XL'
 
-    }
-    service.createProduct(productTest).subscribe((product: any) => {
-      console.log(product);
-      expect(productTest.name).toBe(product.name)
-    })
+  //   }
+  //   service.createProduct(productTest).subscribe((product: any) => {
+  //     console.log(product);
+  //     expect(productTest.name).toBe(product.name)
+  //   })
 
-  })
+  // })
 
 
 
-  it('Edit product ', () => {
+  // it('Edit product ', () => {
 
-    const productTest = {
-      "id": 5,
-      "qty": 1,
-      "name": "Áo thun 06",
-      "price": 200000,
-      "image": '../../../assets/images/product-01 (1).jpg,../../../assets/images/product-01 (2).jpg'
-      ,
-      "colors": 'orange,red,blue',
-      "size": 'L,X,XL'
+  //   const productTest = {
+  //     "id": 5,
+  //     "qty": 1,
+  //     "name": "Áo thun 06",
+  //     "price": 200000,
+  //     "image": '../../../assets/images/product-01 (1).jpg,../../../assets/images/product-01 (2).jpg'
+  //     ,
+  //     "colors": 'orange,red,blue',
+  //     "size": 'L,X,XL'
 
-    }
-    service.editProduct(productTest).subscribe((product: any) => {
-      expect(productTest.name).toBe(product.name)
-    })
+  //   }
+  //   service.editProduct(productTest).subscribe((product: any) => {
+  //     expect(productTest.name).toBe(product.name)
+  //   })
 
-  })
+  // })
 
-  it('Delete product ', () => {
-    service.removeProduct(5).subscribe((product: any) => {
-      expect(product.id).toBe(5)
-    })
+  // it('Delete product ', () => {
+  //   service.removeProduct(5).subscribe((product: any) => {
+  //     expect(product.id).toEqual(5)
+  //   })
 
-  })
+  // })
 
 
 

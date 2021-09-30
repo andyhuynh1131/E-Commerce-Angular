@@ -30,42 +30,42 @@ describe('ListProductComponent', () => {
     service = TestBed.inject(ProductService);
   });
 
-  it('Get totalList by productservice ', async () => {
-    let totalList: number = 0
-    service.getProducts().subscribe((value: any) => {
-      totalList = value.length
-      expect(totalList).toEqual(5)
-    })
+  // it('Get totalList by productservice ', async () => {
+  //   let totalList: number = 0
+  //   service.getProducts().subscribe((value: any) => {
+  //     totalList = value.length
+  //     expect(totalList).toEqual(5)
+  //   })
 
-  })
+  // })
 
-  it('Get productbyId by productservice ', async () => {
-    let product: any = {
-      "id": 1,
-      "qty": 1,
-      "name": "Áo thun Dinosaur 01",
-      "price": 189000,
-      "image": [
-        "../../../assets/images/product-01 (1).jpg",
-        "../../../assets/images/product-01 (2).jpg"
-      ],
-      "colors": [
-        "red",
-        "blue",
-        "orange"
-      ],
-      "size": [
-        "S",
-        "M",
-        "L",
-        "XL"
-      ]
-    }
-    service.getProductbyId(1).subscribe((value: any) => {
-      expect(product).toEqual(value)
-    })
+  // it('Get productbyId by productservice ', async () => {
+  //   let product: any = {
+  //     "id": 1,
+  //     "qty": 1,
+  //     "name": "Áo thun Dinosaur 01",
+  //     "price": 189000,
+  //     "image": [
+  //       "../../../assets/images/product-01 (1).jpg",
+  //       "../../../assets/images/product-01 (2).jpg"
+  //     ],
+  //     "colors": [
+  //       "red",
+  //       "blue",
+  //       "orange"
+  //     ],
+  //     "size": [
+  //       "S",
+  //       "M",
+  //       "L",
+  //       "XL"
+  //     ]
+  //   }
+  //   service.getProductbyId(1).subscribe((value: any) => {
+  //     expect(product).toEqual(value)
+  //   })
 
-  })
+  // })
 
 
 
